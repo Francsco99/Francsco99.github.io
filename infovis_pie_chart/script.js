@@ -13,8 +13,8 @@ sull'intervallo dei valori delle coordinate o delle grandezze geometriche (che d
 
 //Graph dimensions
 const margin = 20;
-const width = 600;
-const height = 600;
+const width = Math.floor(0.8*window.screen.width);
+const height =Math.floor(0.8*window.screen.height);
 
 //The radius of the pieplot is half the width or half the height (smallest one)
 const radius = Math.min(width,height)/2 - margin
