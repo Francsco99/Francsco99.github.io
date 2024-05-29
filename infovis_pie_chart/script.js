@@ -39,6 +39,7 @@ d3.json("data/data.json")
     // Pie creation
     const pie = d3.pie()
     //.sort((a, b) => a.y - b.y)
+    .sort(null)
     .value(function(d){return d.x;}); // same as .value(d => d.x)
     //.value(d => valScale(d.x));
 
