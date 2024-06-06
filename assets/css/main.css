@@ -2166,6 +2166,7 @@ input, select, textarea {
 		position: relative;
 	}
 
+
 		.image img {
 			display: block;
 		}
@@ -2217,6 +2218,7 @@ input, select, textarea {
 				}
 
 			}
+
 
 /* List */
 
@@ -3950,3 +3952,15 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+		span.hover-zoom{
+			overflow: hidden;
+		}
+
+		.hover-zoom img{
+			transition: transform 0.5s ease;
+		}
+
+		.hover-zoom:hover img{
+			transform: scale(1.05); /* Zoom dell'immagine */
+				}
