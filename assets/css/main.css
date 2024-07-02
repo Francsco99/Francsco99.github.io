@@ -3964,3 +3964,8 @@ input, select, textarea {
 		.hover-zoom:hover img{
 			transform: scale(1.05); /* Zoom dell'immagine */
 				}
+
+.large-photo {
+	transition: opacity 0.5s ease-in-out;
+	opacity: 1;
+	}
