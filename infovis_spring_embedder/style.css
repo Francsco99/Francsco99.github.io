@@ -31,10 +31,6 @@ body {
     gap: 30px;
 }
 
-footer{
-    margin-bottom: 20px;
-}
-
 .toolbar-center {
     display: flex;
     justify-content: center;
@@ -82,14 +78,23 @@ footer{
     transform-origin: center;
 }
 
-.help-control {
+.help-control,
+.slider-control {
     position: absolute;
     bottom: 20px;
-    right: 20px;
     display: flex;
 }
 
-.help-control i {
+.help-control {
+    right: 20px;
+}
+
+.slider-control {
+    left: 20px;
+}
+
+.help-control i,
+.slider-control i {
     margin: 10px;
     padding: 10px;
     background: none;
@@ -227,4 +232,33 @@ footer{
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.force-control {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #EDF2F4;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.force-control label {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.force-control input {
+    width: 150px;
+}
+
+#close-slider {
+    align-self: flex-end;
+    cursor: pointer;
+    margin-bottom: 10px;
 }

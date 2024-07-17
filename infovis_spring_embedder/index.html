@@ -6,10 +6,10 @@
     <title>Spring Embedder Graph Drawing Tool</title>
     <link rel="stylesheet" href="style.css">
     <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="../favicon_io/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
     <!--Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Font-->
@@ -51,6 +51,9 @@
         <div class="help-control">
             <i id="help-icon" class="icon fa-solid fa-circle-question fa-2xl"></i>
         </div>
+        <div class="slider-control">
+            <i id="slider-icon" class="icon fa-solid fa-sliders fa-2xl"></i>
+        </div>
     </div>
     <div id="popup" class="popup">
         <div class="popup-content">
@@ -70,15 +73,17 @@
             </ul>
         </div>
     </div>
-    <footer><div class="toolbar-force-slider">
-        <label for="charge">Charge: </label>
+    <div class="force-control">
+        <i id="close-slider" class="icon fa-solid fa-xmark fa-lg"></i>
+        <label for="charge">Charge: <span id="charge-value">-300</span></label>
         <input id="charge" type="range" min="-600" max="-100" step="25" value="-300">
-        <label for="link">Link distance: </label>
+        <label for="link">Link distance: <span id="link-value">100</span></label>
         <input id="link" type="range" min="30" max="200" step="25" value="100">
-        <label for="attract">Center gravity: </label>
+        <label for="attract">Center gravity: <span id="attract-value">0.1</span></label>
         <input id="attract" type="range" min="0" max="0.5" step="0.05" value="0.1">
-    </div></footer>
-    <script src="main.js"></script>
-    <script src="info_popup.js"></script>
+    </div>    
+    <script src="js/main.js"></script>
+    <script src="js/info_control.js"></script>
+    <script src="js/force_control.js"></script>
 </body>
 </html>
