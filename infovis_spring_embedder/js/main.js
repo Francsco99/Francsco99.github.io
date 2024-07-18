@@ -208,6 +208,22 @@ var graph = {
     };
     graph.links.push(newLink);
     return newLink;
+  }),
+
+  extract_nodes: (function() {
+    var nodes = []
+    for (let i = 0; i < graph.nodes.length; i++) {
+      nodes.push({id: graph.nodes[i].id, label: graph.nodes[i].label, x: graph.nodes[i].x, y: graph.nodes[i].y, type: graph.nodes[i].type});
+    }
+    return nodes;
+  }),
+
+  extract_links: (function() {
+    var links = []
+    for (let i = 0; i < graph.links.length; i++) {
+      links.push({id: graph.links[i].id, source: graph.links[i].source.id, target: graph.links[i].target.id, label: graph.links[i].label});
+    }
+    return links;
   })
 };
 
@@ -714,51 +730,62 @@ function downloadNodeLinkList() {
 
 function downloadNodeLinkListWithoutBend(){
 // Filter nodes to include only specified attributes and remove nodes with type "bend"
-const filteredNodes = graph.nodes.map(node => {
-  if (node.type === "bend") {
-    graph.remove(node);
-  }
-  return {
-    id: node.id,
-    label: node.label,
-    x: width/2,
-    y: height/2,
-    type: node.type,
-    index: node.index
-  };
-}).filter(node => node.type !== "bend"); // Exclude nodes with type "bend" from the final list
+  const oldNodes = graph.extract_nodes();
+  const oldLinks = graph.extract_links();
 
-// Filter links to include only specified attributes for source and target
-const filteredLinks = graph.links.map(link => ({
-  id: link.id,
-  label: link.label,
-  source: {
-    id: link.source.id,
-    label: link.source.label,
-    type: link.source.type,
-    index: link.source.index
-  },
-  target: {
-    id: link.target.id,
-    label: link.target.label,
-    type: link.target.type,
-    index: link.target.index
-  },
-  index: link.index
-}));
+  const filteredNodes = graph.nodes.map(node => {
+    if (node.type === "bend") {
+      graph.remove(node);
+    }
+    return {
+      id: node.id,
+      label: node.label,
+      x: width/2,
+      y: height/2,
+      type: node.type,
+      index: node.index
+    };
+  }).filter(node => node.type !== "bend"); // Exclude nodes with type "bend" from the final list
 
-// Create the new JSON object with filtered nodes and links
-const filteredGraph = { nodes: filteredNodes, links: filteredLinks };
+  // Filter links to include only specified attributes for source and target
+  const filteredLinks = graph.links.map(link => ({
+    id: link.id,
+    label: link.label,
+    source: {
+      id: link.source.id,
+      label: link.source.label,
+      type: link.source.type,
+      index: link.source.index
+    },
+    target: {
+      id: link.target.id,
+      label: link.target.label,
+      type: link.target.type,
+      index: link.target.index
+    },
+    index: link.index
+  }));
 
-// Convert the filtered graph to JSON
-const json = JSON.stringify(filteredGraph, null, 2); // The second argument is for pretty printing (optional)
-const blob = new Blob([json], { type: "application/json" });
-saveAs(blob, "node_link_list_no_bends.json");
+  // Create the new JSON object with filtered nodes and links
+  const filteredGraph = { nodes: filteredNodes, links: filteredLinks };
+
+  // Convert the filtered graph to JSON
+  const json = JSON.stringify(filteredGraph, null, 2); // The second argument is for pretty printing (optional)
+  const blob = new Blob([json], { type: "application/json" });
+  saveAs(blob, "node_link_list_no_bends.json");
+
+  graph.nodes = oldNodes;
+  graph.links = oldLinks;
+  graph.objectify();
+  update();
 }
 
 // Function to download node and link list with specific attributes
 function downloadAllGraphWithoutBend() {
   // Filter nodes to include only specified attributes and remove nodes with type "bend"
+  const oldNodes = graph.extract_nodes();
+  const oldLinks = graph.extract_links();
+
   const filteredNodes = graph.nodes.map(node => {
     if (node.type === "bend") {
       graph.remove(node);
@@ -799,6 +826,11 @@ function downloadAllGraphWithoutBend() {
   const json = JSON.stringify(filteredGraph, null, 2); // The second argument is for pretty printing (optional)
   const blob = new Blob([json], { type: "application/json" });
   saveAs(blob, "all_graph_no_bend.json");
+
+  graph.nodes = oldNodes;
+  graph.links = oldLinks;
+  graph.objectify();
+  update();
 }
 
 // Function to download whole graph information including positions
