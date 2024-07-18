@@ -1,20 +1,33 @@
+// Canvas e dimensioni
 const canvas = document.getElementById('graph-canvas');
 const width = canvas.clientWidth;
 const height = canvas.clientHeight;
 
-// Seleziona gli input slider
+// Input range per i parametri della simulazione
 const chargeSlider = document.getElementById('charge');
-const linkSlider = document.getElementById('link');
+//const linkSlider = document.getElementById('link');
 const attractSlider = document.getElementById('attract');
 
-// Aggiungi event listener agli slider per aggiornare la simulazione quando i valori cambiano
-chargeSlider.addEventListener('input', updateForces);
-linkSlider.addEventListener('input', updateForces);
-attractSlider.addEventListener('input', updateForces);
+// Interruttore on off per la simulazione
+const simulationOffIcon = document.getElementById("force-off");
+const simulationOnIcon = document.getElementById("force-on");
+// Collegamento degli event listeners ai toggle
+simulationOnIcon.addEventListener('click', toggleSimulation);
+simulationOffIcon.addEventListener('click', toggleSimulation);
 
+//Input checkbox per i parametri del download json
+const nodeLinkList = document.getElementById("node-link-list");
+const allGraph = document.getElementById("all-graph-info");
+
+
+// Colori dei nodi
+const colors = ['red', 'blue', 'green', 'purple', 'orange'];
+
+// Gestisce la selezione e il tool corrente
 var global = {
   selection: null,
-  tool: 'pointer'
+  tool: 'pointer',
+  simulationActive : true
 };
 
 // Definizione del grafo
@@ -38,22 +51,75 @@ var graph = {
   remove: function(condemned) {
     // remove the given node or link from the graph, also deleting dangling links if a node is removed
     if (graph.nodes.indexOf(condemned) >= 0) {
-      graph.nodes = graph.nodes.filter(function(n) {
-        return n !== condemned;
-      });
-      graph.links = graph.links.filter(function(l) {
-        return l.source.id !== condemned.id && l.target.id !== condemned.id;
-      });
+      if (condemned.type == "bend") {
+        var links = graph.links;
+        var ends = [];
+        var linksToReplace = [];
+        for (let i = 0; i < links.length; i++) {
+          if (links[i].source === condemned) {
+            ends.push(links[i].target);
+            linksToReplace.push(links[i]);
+          }
+          else if (links[i].target === condemned) {
+            ends.push(links[i].source);
+            linksToReplace.push(links[i]);
+          }
+        }
+        graph.links = graph.links.filter(function(l) {
+          return l !== linksToReplace[0] && l !== linksToReplace[1];
+        });
+
+        graph.add_link(ends[0], ends[1], true);
+
+        graph.nodes = graph.nodes.filter(function(n) {
+          return n !== condemned;
+        });
+      }
+      else {
+        graph.nodes = graph.nodes.filter(function(n) {
+          return n !== condemned;
+        });
+        var links = graph.links;
+        for (let i = 0; i < links.length; i++) {
+          if (links[i].source === condemned || links[i].target === condemned) {
+            graph.remove(links[i]);
+          }
+        }
+      }
     }
     // this part is for deleting the single link
     else if (graph.links.indexOf(condemned) >= 0) {
+      const source = condemned.source;
+      const target = condemned.target;
       graph.links = graph.links.filter(function(l) {
         return l !== condemned;
       });
+      if (source.type == "bend") {
+        var links = graph.links;
+        for (let i = 0; i < links.length; i++) {
+          if (links[i].source === source || links[i].target === source) {
+            graph.remove(links[i]);
+          }
+        }
+        graph.nodes = graph.nodes.filter(function(n) {
+          return n !== source;
+        });
+      }
+      if (target.type == "bend") {
+        var links = graph.links;
+        for (let i = 0; i < links.length; i++) {
+          if (links[i].source === target || links[i].target === target) {
+            graph.remove(links[i]);
+          }
+        }
+        graph.nodes = graph.nodes.filter(function(n) {
+          return n !== target;
+        });
+      }
     }
   },
 
-  add_node: (function(type) {
+  add_node: (function(type, x=null, y=null) {
     var newNode;
   
     // Gather all existing node IDs and filter out non-integer IDs
@@ -71,12 +137,19 @@ var graph = {
         break;
       }
     }
+
+    var label = newId;
+
+    if (type == "bend") label = "";
+
+    if (x === null) x = width / 2;
+    if (y === null) y = height / 2;
   
     newNode = {
       id: newId,
-      label: newId,
-      x: width / 2,
-      y: height / 2,
+      label: label,
+      x: x,
+      y: y,
       type: type
     };
   
@@ -85,8 +158,8 @@ var graph = {
     return newNode;
   }),
 
-  add_link: (function(source, target) {
-    console.log(source, target)
+  add_link: (function(source, target, permitBends=false) {
+    if (!permitBends && (source.type == "bend" || target.type == "bend")) return null;
     // avoid links to self
     if (source === target) return null;
 
@@ -96,7 +169,6 @@ var graph = {
     // avoid link duplicates
     for (i = 0; i < links.length; i++) {
       link = links[i];
-      console.log(link.source + " " + link.target);
       if (link.source === source && link.target === target || link.source === target && link.target === source) {
         console.log("errore");
         swal({
@@ -133,9 +205,9 @@ var graph = {
   })
 };
 
-
+// Funzione principale
 function main() {
-
+/*
   graph.nodes = [
     { id: '1', label:"A", type: 'blue' },
     { id: '2', label:"B", x: 793, y: 364, type: 'blue' },
@@ -151,9 +223,14 @@ function main() {
     { id:"5", source: '4', target: '2', label:"D-B" }
   ];
 
-  graph.objectify();
+  graph.objectify();*/
 
-  populateGraph(100, 200);
+  populateGraph(10, 10);
+
+  // Aggiungi event listener agli slider per aggiornare la simulazione quando i valori cambiano
+  chargeSlider.addEventListener('input', updateForces);
+  //linkSlider.addEventListener('input', updateForces);
+  attractSlider.addEventListener('input', updateForces);
 
   var svg = d3.select('#graph-canvas').attr("fill","white");
 
@@ -193,19 +270,18 @@ svg.on('wheel', (event) => {
       d3.selectAll('.node').classed('selected', false);
       d3.selectAll('.link').classed('selected', false);
     });
-
-  global.colorify = d3.scaleOrdinal(d3.schemeCategory10);
   
   // Inizializzazione layout force directed
+  //.force("link", d3.forceLink(graph.links).distance(+linkSlider.value).id(d => d.id))
   global.simulation = d3.forceSimulation(graph.nodes)
-    .force("charge", d3.forceManyBody().strength(+chargeSlider.value))
-    .force("link", d3.forceLink(graph.links).distance(+linkSlider.value).id(d => d.id))
-    .force("attract", d3.forceRadial(0, width / 2, height / 2).strength(+attractSlider.value)) // Forza che tende a tenere i nodi al centro
+    .force("charge", d3.forceManyBody().strength(-300))
+    .force("link", d3.forceLink(graph.links).strength(0.1))
+    .force("attract", d3.forceRadial(0, width / 2, height / 2).strength(0.1)) // Forza che tende a tenere i nodi al centro
     .on("tick", () => {
       // Aggiornamento posizione nodi e archi
       global.vis.selectAll('.node')
         .attr('transform', d => `translate(${d.x},${d.y})`);
-
+      
       global.vis.selectAll('.link')
         .attr('x1', d => d.source.x)
         .attr('y1', d => d.source.y)
@@ -216,7 +292,8 @@ svg.on('wheel', (event) => {
     global.drag = d3.drag()
     .on('start', (event, d) => {
       if (global.tool !== "add-link") {
-        if (!event.active) global.simulation.alphaTarget(0.5).restart();
+        if (!event.active) 
+          global.simulation.alphaTarget(0.5).restart();
         d.fx = d.x;
         d.fy = d.y;
       }
@@ -231,7 +308,6 @@ svg.on('wheel', (event) => {
         if (!global.tempLine) {
           global.tempLine = global.vis.append('line')
             .attr('class', 'drag_link')
-            .attr('class', 'link')
             .attr('stroke-width', '8px')
             .attr('stroke', 'black')
             .attr('opacity', '0.3')
@@ -246,7 +322,8 @@ svg.on('wheel', (event) => {
     })
     .on('end', (event, d) => {
       if (global.tool !== "add-link") {
-        if (!event.active) global.simulation.alphaTarget(0);
+        if (!event.active)
+          global.simulation.alphaTarget(0);
         d.fx = null;
         d.fy = null;
       } else {
@@ -274,6 +351,7 @@ svg.on('wheel', (event) => {
   update();
 };
 
+// Funzione che aggiorna la visualizzazione del grafo
 function update() {
   var links, nodes;
 
@@ -309,7 +387,10 @@ function update() {
   nodes = global.vis.selectAll('.node').data(graph.nodes, d => d.id);
 
   var nodes_enter = nodes.enter().append('g')
-    .attr('class', 'node')
+    .attr('class', function(d) {
+      if (d.type == "bend") return "node bend";
+      return "node";
+    })
     .call(global.drag)
     .on('click', function(event, d) {
       // selezione del nodo
@@ -318,27 +399,37 @@ function update() {
       d3.selectAll('.link').classed('selected', false);
 
       // visualizzazione statistiche
-      visualizeStatistics(d.id,d.label,d.type);
+      visualizeStatistics(d.id, d.label, d.type);
     });
 
   nodes_enter.append('circle')
-    .attr('r', 25)
-    .attr('fill', d => global.colorify(d.type));
+    .attr('r', function(d) {
+      if (d.type == "bend") return 10;
+      return 25})
+    .attr('fill', function(d) {
+      if (d.type == "bend") return "gray";
+      return d.type})
 
   nodes_enter.append('text')
     .attr('text-anchor', 'middle')
     .attr('user-select', 'none')
     .attr('dy', '.35em')
     .attr('font-size',"20px")
-    .text(d => d.label);
+    .text( function(d) {
+      if (d.type == "bend") return "";
+      return d.label});
 
   nodes.exit().remove();
 
   // Aggiorna i nodi esistenti
   nodes.select('circle')
-    .attr('fill', d => global.colorify(d.type))
+    .attr('fill', function(d) {
+      if (d.type == "bend") return "gray";
+        return d.type})
   nodes.select('text')
-    .text(d => d.label);
+    .text(function(d) {
+      if (d.type == "bend") return "";
+      return d.label});
 
   nodes = global.vis.selectAll('.node').attr('transform', d => `translate(${d.x},${d.y})`);
 
@@ -346,127 +437,61 @@ function update() {
   global.simulation.force("link").links(graph.links);
   global.simulation.nodes(graph.nodes);
   global.simulation.alpha(1).restart();
+  
 };
-
-
-d3.select(window).on('click', function () {
-  if (global.selection !== null) {
-    d3.select("#delete").classed('active', true);
-    d3.select("#delete").classed('unactive', false);
-    d3.select("#edit").classed('active', true);
-    d3.select("#edit").classed('unactive', false);
-  }
-  else {
-    d3.select("#delete").classed('active', false);
-    d3.select("#delete").classed('unactive', true);
-    d3.select("#edit").classed('active', false);
-    d3.select("#edit").classed('unactive', true);
-
-    // Svuota le statistiche
-    visualizeStatistics("","","");
-  }
-});
-
-d3.select("#pointer")
-    .on("click", function () {
-      global.tool = "pointer";
-      d3.select("#pointer").classed('active', true);
-      d3.select("#add-node").classed('active', false);
-      d3.select("#add-link").classed('active', false);
-      hideLibrary();
-    });
-
-// Gestione strumenti della toolbar
-d3.select("#add-node")
-  .on("click", function () {
-    global.tool = "add-node";
-    d3.select("#pointer").classed('active', false);
-    d3.select("#add-node").classed('active', true);
-    d3.select("#add-link").classed('active', false);
-
-    showLibrary();
-  });
-
+  
+// Funzione che mostra il selettore dei colori per i nodi
 function showLibrary() {
-  $("#toolbar-extra").html(`
-    <div id="color-picker">
-        <div class="color-option" data-color="red" style="background-color: ` + global.colorify("red") + ` ;"></div>
-        <div class="color-option" data-color="blue" style="background-color: ` + global.colorify("blue") + ` ;"></div>
-        <div class="color-option" data-color="green" style="background-color: ` + global.colorify("green") + ` ;"></div>
-        <div class="color-option" data-color="violet" style="background-color: ` + global.colorify("violet") + ` ;"></div>
-        <div class="color-option" data-color="orange" style="background-color: ` + global.colorify("orange") + ` ;"></div>
-    </div>`);
+  // Costruzione del contenuto HTML per il color picker
+  let colorPickerHtml = '<div id="color-picker">';
+  colors.forEach(color => {
+    colorPickerHtml += `<div class="color-option" data-color="${color}" style="background-color: ${color};"></div>`;
+  });
+  colorPickerHtml += '</div>';
+
+  // Inserimento del color picker nell'elemento con id "toolbar-extra"
+  $("#toolbar-extra").html(colorPickerHtml);
+
+  // Aggiungere il gestore di eventi per le opzioni di colore
   $(".color-option").on("click", function() {
     const color = $(this).data("color");
     if (color) {
-      graph.add_node(color);
-      update();
+      graph.add_node(color); // Supponendo che graph.add_node() sia una funzione definita altrove
+      update(); // Supponendo che update() sia una funzione definita altrove per aggiornare l'interfaccia utente
     }
-    });
+  });
 }
 
+// Funzione che nasconde il selettore colori per i nodi
 function hideLibrary() {
   $("#toolbar-extra").html(``);
 }
 
-d3.select("#add-link")
-  .on("click", function () {
-    global.tool = "add-link";
-    d3.select("#pointer").classed('active', false);
-    d3.select("#add-node").classed('active', false);
-    d3.select("#add-link").classed('active', true);
-    hideLibrary();
-  });
+// Funzione per caricare il file json del grafo
+function upload(json) {
+  // Extract only the necessary attributes for nodes
+  graph.nodes = json.nodes.map(node => ({
+    id: node.id,
+    label: node.label,
+    x: node.x,
+    y: node.y,
+    type: node.type
+  }));
 
-d3.select("#edit")
-  .on("click", function () {
-    if (global.selection) {
-      const success = submit_changes(global.selection);
-      if (success) {
-        update();
-      }
-    }
-  });
+  // Extract only the necessary attributes for links
+  graph.links = json.links.map(link => ({
+    id: link.id,
+    label: link.label,
+    source: link.source.id,
+    target: link.target.id,
+    index: link.index
+  }));
 
-d3.select("#delete")
-  .on("click", function () {
-    if (global.selection) {
-      graph.remove(global.selection);
-      global.selection = null;
-      update();
-    }
-  });
+  graph.objectify();
+  update();
+}
 
-d3.select("#delete-graph")
-  .on("click", function() {
-    // Mostra l'alert di conferma
-    swal({
-      title: "Are you sure to remove the graph?",
-      text: "Once deleted, you will not be able to recover this graph!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        swal("Your graph has been deleted!", {
-          icon: "success",
-          timer: 2000,
-          buttons: false
-        });
-        graph.nodes = [];
-        graph.links = [];
-        update();
-      } else {
-        swal("The graph is unchanged!", {
-          timer: 2000,
-          buttons: false
-        });
-        return
-        }
-    });
-  });  
-
+// Funzione che restituisce il tipo di selezione corrente (nodo o link)
 function selectionType(selection){
   if (selection !== null) {
     if (graph.nodes.indexOf(selection) >= 0) {
@@ -478,32 +503,8 @@ function selectionType(selection){
   return null;
 }
 
-function isAvailableId(selection, new_id, mode) {
-  if (mode === "node") {
-      if (selection.id === new_id)
-          return true;
-      else {
-          for (let i = 0; i < graph.nodes.length; i++) {
-            if (graph.nodes[i].id === new_id)
-              return false;
-          }
-          return true;
-      }
-  }
-  else if (mode === "link") {
-    if (selection.id === new_id)
-      return true;
-    else {
-      for (let i = 0; i < graph.links.length; i++) {
-        if (graph.links[i].id === new_id)
-          return false;
-      }
-      return true;
-    }
-  }
-}
-
-function submit_changes(selection) {
+// Funzione per aggiornare un nodo o un arco
+function submitChanges(selection) {
   const mode = selectionType(selection);
   if (mode === "node") {
     $(".toolbar-left").html(`
@@ -548,10 +549,10 @@ function submit_changes(selection) {
       update();
     });
   }
-  
   return false;
 }
 
+// Funzione per visualizzare le statistiche in alto a sinistra
 function visualizeStatistics(id,label,color){
   document.querySelector('.toolbar-left').innerHTML = `
             <span>ID: ${id}</span>
@@ -560,38 +561,25 @@ function visualizeStatistics(id,label,color){
   `;
 }
 
-d3.select("#svg-download")
-  .on("click", function () {
-    const serializer = new XMLSerializer();
-    const svgString = serializer.serializeToString(document.querySelector('svg'));
-    const blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
-    saveAs(blob, "graph.svg");
-  });
-
-d3.select("#json-download")
-  .on("click", function () {
-    const json = JSON.stringify({ nodes: graph.nodes, links: graph.links });
-    const blob = new Blob([json], { type: "application/json" });
-    saveAs(blob, "graph.json");
-  });
-
-  function updateForces() {
+// Funzione per aggiornare la forza con i valori inseriti tramite gli slider
+function updateForces() {
     const chargeValue = +chargeSlider.value;
-    const linkDistance = +linkSlider.value;
+    //const linkDistance = +linkSlider.value;
     const attractStrength = +attractSlider.value;
-
+    
     global.simulation
         .force("charge", d3.forceManyBody().strength(chargeValue))
-        .force("link", d3.forceLink(graph.links).distance(linkDistance).id(d => d.id))
+        .force("link", d3.forceLink(graph.links).strength(0))
         .force("attract", d3.forceRadial(0, width / 2, height / 2).strength(attractStrength))
         .alpha(1)
         .restart();
-  }
+}
 
+// Funzione per costruire un grafo random
 function populateGraph(numNodes, numLinks){
   // Creazione dei nodi
   for (let i = 1; i <= numNodes; i++) {
-    graph.add_node(['red', 'blue', 'green', 'violet', 'orange'][Math.floor(Math.random() * 5)] ); // Assegna un colore casuale
+    graph.add_node(colors[Math.floor(Math.random() * 5)] ); // Assegna un colore casuale
 }
   
   // Creazione degli archi
@@ -601,9 +589,7 @@ function populateGraph(numNodes, numLinks){
     const targetIndex = Math.floor(Math.random() * graph.nodes.length);
     const source = graph.nodes[sourceIndex];
     const target = graph.nodes[targetIndex];
-
-    console.log(source + " " + target);
-
+    
     var valid = true;
     // Evita autocollegamenti e duplicati
     if (sourceIndex !== targetIndex) {
@@ -622,5 +608,262 @@ function populateGraph(numNodes, numLinks){
   }
   return 
 }
+
+// Funzione per gestire l'avvio e l'arresto della simulazione
+function toggleSimulation() {
+  if (!global.simulationActive) {
+    global.simulationActive = true;
+    
+    global.simulation
+      .force("charge", d3.forceManyBody().strength(-300))
+      .force("link", d3.forceLink(graph.links).strength(0))
+      .force("attract", d3.forceRadial(0, width / 2, height / 2).strength(0.1)); // Forza che tende a tenere i nodi al centro
+    
+      simulationOnIcon.style.display = 'block';
+    simulationOffIcon.style.display = 'none';
+  } else if(global.simulationActive){
+    global.simulationActive = false;
+    
+    global.simulation
+      .force("charge", d3.forceManyBody().strength(0))
+      .force("link", d3.forceLink(graph.links).strength(0))
+      .force("attract", d3.forceRadial(0, width / 2, height / 2).strength(0)); // Forza che tende a tenere i nodi al centro
+    
+      simulationOnIcon.style.display = 'none';
+    simulationOffIcon.style.display = 'block';
+  }
+}
+
+d3.select(window).on('click', function () {
+  if (global.selection !== null) {
+    d3.select("#delete").classed('active', true);
+    d3.select("#delete").classed('unactive', false);
+
+    if (selectionType(global.selection) == "node") {
+      if (global.selection.type != "bend") {
+        d3.select("#edit").classed('active', true);
+        d3.select("#edit").classed('unactive', false);
+      }
+      else {
+        d3.select("#edit").classed('active', false);
+        d3.select("#edit").classed('unactive', true);
+      }
+
+      d3.select("#add-bend").classed('active', false);
+      d3.select("#add-bend").classed('unactive', true);
+    }
+    else {
+      d3.select("#edit").classed('active', true);
+      d3.select("#edit").classed('unactive', false);
+      d3.select("#add-bend").classed('active', true);
+      d3.select("#add-bend").classed('unactive', false);
+    }
+  }
+  else {
+    d3.select("#delete").classed('active', false);
+    d3.select("#delete").classed('unactive', true);
+    d3.select("#edit").classed('active', false);
+    d3.select("#edit").classed('unactive', true);
+    d3.select("#add-bend").classed('unactive', true);
+    d3.select("#add-bend").classed('active', false);
+
+    // Svuota le statistiche
+    visualizeStatistics("","","");
+  }
+});
+
+// Gestione dello strumento puntatore
+d3.select("#pointer")
+    .on("click", function () {
+      global.tool = "pointer";
+      d3.select("#pointer").classed('active', true);
+      d3.select("#add-node").classed('active', false);
+      d3.select("#add-link").classed('active', false);
+      hideLibrary();
+    });
+
+// Gestione strumenti della toolbar
+d3.select("#add-node")
+  .on("click", function () {
+    global.tool = "add-node";
+    d3.select("#pointer").classed('active', false);
+    d3.select("#add-node").classed('active', true);
+    d3.select("#add-link").classed('active', false);
+
+    showLibrary()});
+
+    // Gestione aggiunta archi
+d3.select("#add-link")
+  .on("click", function () {
+    global.tool = "add-link";
+    d3.select("#pointer").classed('active', false);
+    d3.select("#add-node").classed('active', false);
+    d3.select("#add-link").classed('active', true);
+    hideLibrary();
+  });
+
+// Gestione aggiunta piegamenti
+d3.select("#add-bend")
+.on("click", function () {
+  d3.selectAll('.link').classed('selected', false);
+  if (global.selection) {
+    if (selectionType(global.selection) == "link") {
+      const link = global.selection;
+      const sourceNode = link.source;
+      const targetNode = link.target;
+      const bendNode = graph.add_node("bend", (sourceNode.x + targetNode.x) / 2, (sourceNode.y + targetNode.y) / 2);
+      link.target = bendNode;
+      graph.add_link(bendNode, targetNode, true);
+      global.selection = null;
+      update();
+    }
+  }
+});
+
+// Gestione modifica elemento
+d3.select("#edit")
+  .on("click", function () {
+    if (global.selection) {
+      if (selectionType(global.selection) == "node") {
+        if (global.selection.type == "bend") {
+          return;
+        }
+      }
+      const success = submitChanges(global.selection);
+      if (success) {
+        update();
+      }
+    }
+  });
+
+// Gestione cancellazione elemento
+d3.select("#delete")
+  .on("click", function () {
+    if (global.selection) {
+      graph.remove(global.selection);
+      global.selection = null;
+      update();
+    }
+  });
+
+// Gestione cancellazione grafo
+d3.select("#delete-graph")
+  .on("click", function() {
+    // Mostra l'alert di conferma
+    swal({
+      title: "Are you sure to remove the graph?",
+      text: "Once deleted, you will not be able to recover this graph!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Your graph has been deleted!", {
+          icon: "success",
+          timer: 2000,
+          buttons: false
+        });
+        graph.nodes = [];
+        graph.links = [];
+        update();
+      } else {
+        swal("The graph is unchanged!", {
+          timer: 2000,
+          buttons: false
+        });
+        return
+        }
+    });
+  });
+
+// Add event listener for SVG download
+d3.select("#svg-download")
+  .on("click", function () {
+    const serializer = new XMLSerializer();
+    const svgString = serializer.serializeToString(document.querySelector('svg'));
+    const blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
+    saveAs(blob, "graph.svg");
+  });
+
+// Add event listener for JSON download
+/*d3.select("#json-download")
+  .on("click", function () {
+    const json = JSON.stringify({ nodes: graph.nodes, links: graph.links });
+    const blob = new Blob([json], { type: "application/json" });
+    saveAs(blob, "graph.json");
+  });*/
+
+
+// Gestione upload json
+d3.select("#json-upload")
+.on("click", function () {
+  document.getElementById('json-file-input').click();
+});
+
+// Gestione upload file
+d3.select("#json-file-input")
+  .on("change", function () {
+    const file = this.files[0];
+    if (file) {
+      // Check if the file type is JSON
+      if (file.type !== "application/json") {
+        swal({
+          title: "Error!",
+          text: "Please select a JSON file.",
+          icon: "error",
+          timer: 2000,
+          buttons: false
+        });
+
+        // Reset the input element
+        document.getElementById('json-file-input').value = "";
+        return;
+      }
+
+      swal({
+        title: "Are you sure you want to load a new graph?",
+        text: "This operation will overwrite the current graph.",
+        icon: "warning",
+        buttons: ["No", "Yes"],
+        dangerMode: true,
+      }).then((willLoad) => {
+        if (willLoad) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            try {
+              const json = JSON.parse(event.target.result);
+              upload(json);
+              
+              // Display success notification
+              swal({
+                title: "Success!",
+                text: "Your graph has been loaded",
+                icon: "success",
+                timer: 2000,
+                buttons: false
+              });
+            } catch (error) {
+              // Display error notification
+              swal({
+                title: "Error!",
+                text: "The graph could not be loaded",
+                icon: "error",
+                timer: 2000,
+                buttons: false
+              });
+            }
+            
+            // Reset the input element
+            document.getElementById('json-file-input').value = "";
+          };
+          reader.readAsText(file);
+        } else {
+          // Reset the input element if the user cancels the operation
+          document.getElementById('json-file-input').value = "";
+        }
+      });
+    }
+  });
 
 main();

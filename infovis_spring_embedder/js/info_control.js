@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var popup = document.getElementById("popup");
-    var closePopup = document.getElementById('close-popup');
+    var popup = document.getElementById("info-popup");
+    var closePopup = document.getElementById('close-info-popup');
     var helpIcon = document.getElementById("help-icon"); // Seleziona l'icona usando l'ID
 
     // Mostra il popup all'apertura della pagina

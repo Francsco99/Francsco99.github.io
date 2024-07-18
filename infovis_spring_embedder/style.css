@@ -6,6 +6,7 @@ body {
     height: 100vh;
 }
 
+/* Toolbar Styles */
 .toolbar {
     display: flex;
     justify-content: space-between;
@@ -63,6 +64,7 @@ body {
     color: #8D99AE;
 }
 
+/* Canvas Container Styles */
 .canvas-container {
     position: relative;
     width: 100%;
@@ -78,8 +80,10 @@ body {
     transform-origin: center;
 }
 
+/* Control Styles */
 .help-control,
-.slider-control {
+.slider-control,
+.force-toggle {
     position: absolute;
     bottom: 20px;
     display: flex;
@@ -89,12 +93,14 @@ body {
     right: 20px;
 }
 
-.slider-control {
+.slider-control,
+.force-toggle {
     left: 20px;
 }
 
 .help-control i,
-.slider-control i {
+.slider-control i,
+.force-toggle i {
     margin: 10px;
     padding: 10px;
     background: none;
@@ -105,7 +111,8 @@ body {
     justify-content: center;
 }
 
-.popup {
+/* Popup Styles */
+.info-popup{
     display: none;
     position: fixed;
     top: 0;
@@ -117,42 +124,79 @@ body {
     align-items: center;
 }
 
-.popup-content {
-    background-color: white;
+.info-popup-content{
+    background-color: #EDF2F4;
     padding: 20px;
     border-radius: 10px;
     width: 50%;
     max-width: 600px;
     position: relative;
-    text-align: center;
+    text-align: left; /* Align text to the left */
 }
 
-.popup-content h2 {
+.info-popup-content h2 {
     margin-top: 0;
+    text-align: center !important;
 }
 
-.popup-content ul {
+.info-popup-content ul {
     list-style-type: none;
     padding: 0;
 }
 
-.popup-content ul li {
+.info-popup-content ul li {
     display: flex;
     align-items: center;
     margin: 15px 0;
 }
 
-.popup-content ul li i {
+.info-popup-content ul li i {
     margin-right: 10px;
+    width: 40px; /* Fixed width for icons */
+    text-align: center; /* Center align icons within their fixed width */
 }
 
-#close-popup {
+.info-popup-content ul li span {
+    flex-grow: 1;
+}
+
+#close-info-popup{
     position: absolute;
     top: 20px;
     right: 10px;
     cursor: pointer;
 }
+/*Download options popup Styles*/
+.download-options-popup {
+    display: none;
+    position: absolute;
+    top: 70px; /* Adjust this value based on your toolbar height */
+    right: 20px;
+    background-color: #EDF2F4;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.download-options-popup label {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.download-options-popup input {
+    margin-left: 10px;
+}
+
+#close-download-options {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+/* Color Picker Styles */
 #color-picker-toolbar {
     position: absolute;
     display: flex;
@@ -173,23 +217,18 @@ body {
     cursor: pointer;
 }
 
+/* Node and Link Styles */
 .node > circle {
     stroke-width: 4px;
     cursor: pointer;
 }
 
-.node > text{
+.node > text {
     cursor: pointer;
 }
 
-.link,
-.drag_link {
+.link {
     cursor: pointer;
-}
-
-.drag_link {
-    stroke-width: 5px;
-    stroke-linecap: round;
 }
 
 .link.selected {
@@ -201,6 +240,7 @@ body {
     stroke: black;
 }
 
+/* Node Info Styles */
 #node_id,
 #node_label,
 #node_color {
@@ -220,6 +260,7 @@ body {
     width: 80px;
 }
 
+/* Color Picker */
 #color-picker {
     display: flex;
     justify-content: center;
@@ -234,6 +275,7 @@ body {
     cursor: pointer;
 }
 
+/* Force Control Styles */
 .force-control {
     position: absolute;
     bottom: 20px;
@@ -261,4 +303,12 @@ body {
     align-self: flex-end;
     cursor: pointer;
     margin-bottom: 10px;
+}
+
+#force-off {
+    display: none;
+}
+
+#slider-icon {
+    display: inline;
 }
