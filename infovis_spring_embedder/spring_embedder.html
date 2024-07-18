@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spring Embedder Graph Drawing Tool</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_spring/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_spring/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_spring/favicon-16x16.png">
-    <link rel="manifest" href="../favicon_spring/site.webmanifest">
-
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <!--Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Font-->
@@ -26,11 +25,7 @@
 </head>
 <body>
     <div class="toolbar">
-        <div class="toolbar-left">
-            <span class="label">ID: </span>
-            <span class="label">LABEL: </span>
-            <span class="label">COLOR: </span>
-        </div>
+        <div class="toolbar-left"></div>
         <div class="toolbar-center">
             <i id="pointer" class="icon toolbar-icon active fa-solid fa-arrow-pointer fa-2xl" data-tool="pointer"></i>
             <i id="add-node" class="icon toolbar-icon fa-solid fa-circle-plus fa-2xl" data-tool="add-node"></i>
@@ -89,16 +84,16 @@
         <input id="charge" type="range" min="-600" max="-100" step="10" value="-300">
         <label for="attract">Center gravity: <span id="attract-value">0.1</span></label>
         <input id="attract" type="range" min="0" max="0.5" step="0.05" value="0.1">
-    </div>  
+    </div> 
 
     <div class="download-options-popup" id="download-options-popup">
         <i id="close-download-options" class="icon fa-solid fa-xmark fa-lg"></i>
-        <label for="node-link-list">Node and link list</label>
-        <input id="node-link-list" type="radio" name="download-options-radio">
-        <label for="all-graph-info">Whole graph (including positions)</label>
-        <input id="all-graph-info" type="radio" name="download-options-radio">
-    </div>
-
+        <button id="node-link-list">Node-link list</button>
+        <button id="node-link-list-without-bend">Node-link list (no bends)</button>
+        <button id="all-graph-info">Whole structure</button>
+        <button id="all-graph-without-bend">Whole structure (no bends)</button>
+    </div>    
+    
     <input type="file" id="json-file-input" accept=".json" style="display: none;">
 
     <script src="js/main.js"></script>
