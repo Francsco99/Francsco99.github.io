@@ -5,49 +5,36 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-  <head>
-    <title>Portfolio</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="favicon_io/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="favicon_io/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="favicon_io/favicon-16x16.png"
-    />
-    <link rel="manifest" href="favicon_io/site.webmanifest" />
-    <link rel="icon" href="favicon_io/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
-  </head>
+    <head>
+        <title>Portfolio</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png"/>
+        <link rel="manifest" href="favicon_io/site.webmanifest" />
+        <link rel="icon" href="favicon_io/favicon.ico" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="lightbox/css/lightbox.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
+        <style>
+            .grid-item {
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 2px;
+            }
+        </style>
+    </head>
+
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
       <!-- Header -->
       <!-- Note: The "styleN" class below should match that of the banner element. -->
       <header id="header" class="alt style2">
-        <a href="index.html" class="logo"
-          ><strong>Francesco Spezzano</strong>
-          <!--<span>by HTML5 UP</span>--></a
-        >
+        <a href="index.html" class="logo"><strong>Francesco Spezzano</strong></a>
         <nav>
-          <a href="#menu">Menu</a>
+            <a href="#menu">Menu</a>
         </nav>
       </header>
 
@@ -60,17 +47,11 @@
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="contatti.html">Contatti</a></li>
           <li>
-            <a
-              href="https://www.ebay.it/usr/fspezzano_trade"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Shop</a
-            >
+            <a href="https://www.ebay.it/usr/fspezzano_trade" target="_blank" rel="noopener noreferrer">Shop</a>
           </li>
         </ul>
         <ul class="actions stacked">
           <li><a href="index.html" class="button primary fit">Home</a></li>
-          <!--<li><a href="#" class="button fit">Log In</a></li>-->
         </ul>
       </nav>
 
@@ -93,95 +74,43 @@
       <!-- Main -->
       <div id="main">
         <div class="inner">
-          <h2>2023</h2>
-          <div class="row gtr-50 gtr-uniform">
-            <!--break-->
-            <div class="col-4">
-              <span class="image fit">
-                <a href="https://postimg.cc/LnZzxfJF" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/Yqdbqzk0/ektar-100-1-ps-square.jpg"
-                    alt="ektar-100-1-ps-square"
-                  />
-                </a>
-              </span>
-            </div>
-            <div class="col-4">
-              <span class="image fit">
-                <a href="https://postimg.cc/Bj92k6FL" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/qvgQt6ML/velvia-100-1-ps-2-3-square.jpg"
-                    alt="velvia-100-1-ps-2-3-square"
-                  />
-                </a>
-              </span>
-            </div>
-            <div class="col-4">
-              <span class="image fit">
-                <a href="https://postimg.cc/gxV3WWyM" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/Cxt7bMRV/01082023-gold-200-3-ps-square.jpg"
-                    alt="01082023-gold-200-3-ps-square"
-                  />
-                </a>
-              </span>
-            </div>
-            <!--break-->
-            <div class="col-4">
-              <p>Zenza Bronica ETRs + Ektar 100</p>
-            </div>
-            <div class="col-4">
-              <p>Canon A1 + Velvia 100</p>
-            </div>
-            <div class="col-4">
-              <p>Zenza Bronica ETRs + Gold 200</p>
-            </div>
+          <!-- Filter Buttons -->
+          <div class="filter-buttons">
+            <button class="button primary" data-filter="*">Mostra Tutto</button>
+            <button class="button" data-filter=".2022">2022</button>
+            <button class="button" data-filter=".2023">2023</button>
+            <button class="button" data-filter=".2024">2024</button>
           </div>
           <hr />
-          <div class="row gtr-50 gtr-uniform">
-            <div class="col-4">
-              <span class="image fit">
-                <a href="https://postimg.cc/d7JrQx4J" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/Pqw4yGDv/01082023-gold-200-4bis-ps-3-2-square.jpg"
-                    alt="01082023-gold-200-4bis-ps-3-2-square"
-                  />
-                </a>
-              </span>
+
+          <!-- Photo Gallery -->
+          <div class="grid">
+            <div class="grid-item 2022">
+              <a href="images/barchettaBanner2.jpg" data-lightbox="all" data-title="Barchetta" class="image fit hover-zoom">
+                <img src="images/barchettaBanner2.jpg" alt="Foto 2022" />
+              </a>
             </div>
-            <div class="col-4">
-              <span class="image fit">
-                <a href="https://postimg.cc/NybTKkzm" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/FRXxnPbW/01082023-gold-200-5-ps-3-2-square.jpg"
-                    alt="01082023-gold-200-5-ps-3-2-square"
-                  />
-                </a>
-              </span>
+            <div class="grid-item 2023">
+              <a href="images/PinguGoesAway.png" data-lightbox="all" class="image fit hover-zoom">
+                <img src="images/PinguGoesAway.png" alt="Foto 2023" />
+              </a>
             </div>
-            <div class="col-4">
-              <span class="image fit">
-                <a href="https://postimg.cc/fk1dSLB2" target="_blank">
-                  <img
-                    src="https://i.postimg.cc/8Pzm3fWS/01082023-gold-200-9-ps-square.jpg"
-                    alt="01082023-gold-200-9-ps-square"
-                  />
-                </a>
-              </span>
+            <div class="grid-item 2022">
+              <a href="images/PinguthePhotographer.png" data-lightbox="all" class="image fit hover-zoom">
+                <img src="images/PinguthePhotographer.png" alt="Foto 2022" />
+              </a>
             </div>
-            <iframe src="https://docs.google.com/spreadsheets/d/1u2BuM0KqRrWoaXRPsF00p6dZtBPnyd3WhkXJrPNgNEY/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            <!--break-->
-            <div class="col-4">
-              <p>Zenza Bronica ETRs + Gold 200</p>
+            <div class="grid-item 2023">
+              <a href="images/PinguUnderConstruction.png" data-lightbox="all" class="image fit hover-zoom">
+                <img src="images/PinguUnderConstruction.png" alt="Foto 2023" />
+              </a>
             </div>
-            <div class="col-4">
-              <p>Zenza Bronica ETRs + Gold 200</p>
-            </div>
-            <div class="col-4">
-              <p>Zenza Bronica ETRs + Gold 200</p>
+            <div class="grid-item 2022">
+              <a href="images/PinguLetter.png" data-lightbox="all" class="image fit hover-zoom">
+                <img src="images/PinguLetter.png" alt="Foto 2022" />
+              </a>
             </div>
           </div>
-          <hr />
         </div>
       </div>
 
@@ -205,5 +134,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="lightbox/js/lightbox.js"></script>
+    <script src="script/portfolio.js"></script>
   </body>
 </html>
