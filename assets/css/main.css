@@ -3962,7 +3962,7 @@ input, select, textarea {
 		}
 
 		.hover-zoom:hover img{
-			transform: scale(1.05); /* Zoom dell'immagine */
+			transform: scale(1.1); /* Zoom dell'immagine */
 				}
 
 .large-photo {
