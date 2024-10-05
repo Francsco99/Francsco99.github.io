@@ -9,32 +9,57 @@
 
 <url>
   <loc>https://www.fspezzano.it/</loc>
-  <lastmod>2024-05-29T12:55:55+00:00</lastmod>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.fspezzano.it/index.html</loc>
-  <lastmod>2024-05-29T12:55:55+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.fspezzano.it/portfolio.html</loc>
-  <lastmod>2024-05-29T12:55:55+00:00</lastmod>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.fspezzano.it/progetti.html</loc>
-  <lastmod>2024-05-29T12:55:55+00:00</lastmod>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.fspezzano.it/diy.html</loc>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.fspezzano.it/portfolio.html</loc>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.fspezzano.it/contatti.html</loc>
-  <lastmod>2024-05-29T12:55:55+00:00</lastmod>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.fspezzano.it/infovis_pie_chart/pie_chart.html</loc>
-  <lastmod>2024-05-29T12:55:55+00:00</lastmod>
+  <loc>https://www.fspezzano.it/infovis/</loc>
+  <lastmod>2024-10-04T08:50:43+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.fspezzano.it/infovis_final/</loc>
+  <lastmod>2024-07-24T06:06:58+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.fspezzano.it/box1.html</loc>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.fspezzano.it/box2.html</loc>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.fspezzano.it/toolchest.html</loc>
+  <lastmod>2024-10-05T12:32:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
