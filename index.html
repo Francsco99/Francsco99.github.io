@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Francesco Spezzano</title>
+      <link rel="stylesheet" href="assets/css/style.css" />
+      <link rel="stylesheet" href="assets/css/mediaqueries.css" />
+      <script src="https://kit.fontawesome.com/3f3dd5b20c.js" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="page-wrapper">
+         <!-- NAVBAR DESKTOP -->
+         <nav id="desktop-nav">
+            <!-- Logo cliccabile che porta alla homepage (index.html) -->
+            <a href="index.html" class="logo-container">
+            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
+            <span class="logo">Francesco Spezzano</span>
+            </a>
+            <div>
+               <!-- Menu di navigazione principale -->
+               <ul class="nav-links">
+                  <li><a href="#about">About</a></li>
+                  <li><a href="projects.html">Projects</a></li>
+                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li><a href="#contact">Contact</a></li>
+               </ul>
+            </div>
+         </nav>
+         <!-- NAVBAR MOBILE (Hamburger Menu) -->
+         <nav id="hamburger-nav">
+            <!-- Logo cliccabile che porta alla homepage (index.html) -->
+            <a href="index.html" class="logo-container">
+            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
+            </a>
+            <div class="hamburger-menu">
+               <!-- Icona del menu a hamburger, cliccabile per aprire/chiudere il menu -->
+               <div class="hamburger-icon" onclick="toggleMenu()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+               </div>
+               <!-- Menu che si apre con il clic sull'icona hamburger -->
+               <div class="menu-links">
+                  <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                  <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+                  <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
+                  <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+               </div>
+            </div>
+         </nav>
+         <!-- SEZIONE ABOUT -->
+         <section id="about">
+            <!-- Descrizione breve della sezione -->
+            <p class="section__text__p1">Get To Know More</p>
+            <h1 class="title">About Me</h1>
+            <div class="section-container">
+               <!-- Immagine del profilo -->
+               <div class="section__pic-container">
+                  <img
+                     src="assets/images/Dexter.webp"
+                     alt="Profile picture"
+                     class="about-pic"
+                     />
+               </div>
+               <!-- Dettagli e descrizione personale -->
+               <div class="about-details-container">
+                  <div class="text-container">
+                     <p>
+                      Welcome to my website. 
+                      I am a 24-year-old guy, graduated in Computer Engineering from Roma 3 University, and I am currently pursuing my master's degree in Computer Engineering. 
+                      In addition to my passion for technology, I have a great love for analog photography. 
+                      Experimenting with film and old cameras has become a hobby that I enjoy cultivating in my free time. 
+                      In this online space, I will share with you my experiences, opinions, and knowledge on these two worlds that are so different yet fascinating at the same time. 
+                      I invite you to explore my website and feel free to contact me if you have any questions or simply want to exchange ideas. 
+                      Thank you for visiting!
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- SEZIONE CONTACT -->
+         <section id="contact">
+            <!-- Descrizione breve della sezione di contatto -->
+            <p class="section__text__p1">Get in Touch</p>
+            <h1 class="title">Contact Me</h1>
+            <div class="contact-icons">
+               <a href="mailto:examplemail@gmail.com" target="_blank" aria-label="Email">
+               <i class="fas fa-envelope fa-2xl"></i>
+               </a>
+               <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+               <i class="fa-brands fa-youtube fa-2xl"></i>
+               </a>
+               <a href="https://www.github.com" target="_blank" aria-label="GitHub">
+               <i class="fab fa-github fa-2xl"></i>
+               </a>
+               <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+               <i class="fab fa-linkedin fa-2xl"></i>
+               </a>
+               <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+               <i class="fab fa-instagram fa-2xl"></i>
+               </a>
+            </div>
+         </section>
+         <hr class="footer-separator" />
+      </div>
+      <!-- FOOTER -->
+      <footer>
+         <!-- Testo del copyright -->
+         <p>Copyright &#169; 2024 Francesco Spezzano. All Rights Reserved.</p>
+      </footer>
+      <!-- Script JS per il menu hamburger -->
+      <script src="assets/js/script.js"></script>
+   </body>
+</html>
