@@ -1,7 +1,7 @@
-/* RESET & GENERAL STYLES */
-
+/* IMPORT FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+/* RESET & GENERAL STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +10,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,23 +19,16 @@ body {
   flex-direction: column;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 p {
   color: rgb(85, 85, 85);
 }
 
 /* TRANSITIONS */
-
-a,
-.btn {
+a, .button {
   transition: all 300ms ease;
 }
 
 /* LAYOUT CONTAINERS */
-
 .page-wrapper {
   flex: 1;
   display: flex;
@@ -48,10 +42,8 @@ a,
 }
 
 /* NAVIGATION */
-
 /* Desktop Navigation */
-nav,
-.nav-links {
+nav, .nav-links {
   display: flex;
 }
 
@@ -110,6 +102,7 @@ a.logo-container .logo {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  z-index: 100;
 }
 
 .hamburger-icon {
@@ -128,7 +121,6 @@ a.logo-container .logo {
   transition: all 0.3 ease-in-out;
 }
 
-/* Menu Links */
 .menu-links {
   position: absolute;
   top: 100%;
@@ -171,22 +163,12 @@ a.logo-container .logo {
 }
 
 /* SECTIONS */
-
 section {
   padding-top: 4vh;
   height: 96vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
-}
-
-/* SECTION - PROFILE */
-
-#profile {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  height: 80vh;
 }
 
 .section__pic-container {
@@ -219,15 +201,7 @@ section {
   text-align: center;
 }
 
-#socials-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
-}
-
-/* SECTION - ABOUT */
-
+/* ABOUT SECTION */
 #about {
   position: relative;
 }
@@ -267,8 +241,7 @@ section {
   text-align: center;
 }
 
-/* SECTION - EXPERIENCE */
-
+/* EXPERIENCE SECTION */
 #experience {
   position: relative;
 }
@@ -306,8 +279,7 @@ article .icon {
   cursor: default;
 }
 
-/* SECTION - PROJECTS */
-
+/* PROJECTS SECTION */
 #projects {
   position: relative;
 }
@@ -328,108 +300,98 @@ article .icon {
   color: black;
 }
 
-/* SECTION - CONTACT */
-
+/* CONTACT SECTION */
 #contact {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  height: auto;
 }
 
 .contact-icons {
   display: flex;
   justify-content: center;
-  gap: 2rem; /* Spazio tra le icone */
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .contact-icons a {
-  color: rgb(53, 53, 53); /* Colore icone */
-  text-decoration: none; /* Rimuove sottolineatura */
+  color: rgb(53, 53, 53);
+  text-decoration: none;
 }
 
 .contact-icons a:hover {
-  color: grey; /* Colore icone al passaggio del mouse */
+  color: grey;
 }
 
 .contact-icons i {
-  font-size: 2rem; /* Dimensione delle icone */
+  font-size: 2rem;
 }
 
 /* ICONS */
-
 .icon {
   cursor: pointer;
   height: 2rem;
 }
 
 /* BUTTONS */
-
-.btn-container {
+.button-container {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-.btn {
+.button {
   font-weight: 600;
-  transition: all 300ms ease;
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   background: none;
 }
-.btn:hover{
+
+.button:hover {
   cursor: pointer;
   background: rgb(53, 53, 53);
   color: white;
 }
 
-
-
-
+.button.active {
+  background-color: rgb(53, 53, 53);
+  color: white;
+}
 
 /* FOOTER */
-
 .footer-separator {
-  width: 80%;
+  width: 90%;
   margin: 2rem auto;
   border: none;
   height: 1px;
   background-color: rgb(163, 163, 163);
 }
 
-footer {
-  height: 26vh;
-  margin: 0 1rem;
-}
-
 footer p {
   text-align: center;
 }
 
+/* GALLERY */
+#portfolio {
+  height: auto;
+}
 
-/* Galleria */
-.gallery {
+.grid {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
 }
 
-.gallery-item {
-  width: 200px;
+.grid-item {
+  max-width: 30%;
   text-align: center;
 }
 
-.gallery-item img {
+.grid-item img {
   width: 100%;
-  border-radius: 10px;
-}
-
-.gallery-item p {
-  font-size: 1rem;
-  margin-top: 0.5rem;
 }

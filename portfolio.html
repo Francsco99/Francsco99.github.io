@@ -5,10 +5,14 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Portfolio</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png"/>
+      <link rel="manifest" href="favicon_io/site.webmanifest" />
+      <link rel="icon" href="favicon_io/favicon.ico" />
       <link rel="stylesheet" href="assets/css/style.css" />
       <link rel="stylesheet" href="assets/css/mediaqueries.css" />
-      <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-      <script src="assets/js/jquery.min.js"></script>
+      <link rel="stylesheet" href="lightbox/css/lightbox.css" />
    </head>
    <body>
       <div class="page-wrapper">
@@ -46,50 +50,69 @@
          </nav>
          <section id="portfolio">
           <!-- Filtro Anni -->
-          <div class="filter-buttons btn-container">
-             <button class="btn filter-button" data-filter="*">Show All</button>
-             <button class="btn filter-button" data-filter=".year-2024">2024</button>
-             <button class="btn filter-button" data-filter=".year-2023">2023</button>
-             <button class="btn filter-button" data-filter=".year-2022">2022</button>
-             <button class="btn filter-button" data-filter=".year-2021">2021</button>
-             <button class="btn filter-button" data-filter=".year-2020">2020</button>
+          <div class="button-container">
+             <button class="button" data-filter="*">Show All</button>
+             <button class="button" data-filter=".2024">2024</button>
+             <button class="button" data-filter=".2023">2023</button>
+             <button class="button" data-filter=".2022">2022</button>
+             <button class="button" data-filter=".2021">2021</button>
+             <button class="button" data-filter=".2020">2020</button>
+             <button class="button" data-filter=".2019">2019</button>
+             <button class="button" data-filter=".2018">2018</button>
           </div>
        
           <!-- Galleria -->
-          <div class="gallery">
+          <div class="grid">
              <!-- Oggetti della galleria (ogni immagine deve avere una classe corrispondente all'anno) -->
-             <div class="gallery-item year-2024">
-                <img src="assets/project-1.png" alt="Project 2024">
-                <p>Project 2024</p>
+             <div class="grid-item 2023">
+                <a href="assets/images/portfolio/2023/26032023_PANF50_13_PS_4:5.jpg" data-lightbox="all" data-title="Roma, Marzo 2023, Eur" class="image fit hover-zoom">
+                  <img src="assets/images/portfolio/2023/26032023_PANF50_13_PS_4:5.jpg" alt="laghetti eur">
+                </a>
              </div>
-             <div class="gallery-item year-2023">
-                <img src="assets/project-2.png" alt="Project 2023">
-                <p>Project 2023</p>
+             
+             <div class="grid-item 2023">
+               <a href="assets/images/portfolio/2023/26032023_PANF50_6_PS_4:5.jpg" data-lightbox="all" data-title="Roma, Marzo 2023, Eur" class="image fit hover-zoom">
+                  <img src="assets/images/portfolio/2023/26032023_PANF50_6_PS_4:5.jpg" alt="colosseo quadrato">
+               </a>
              </div>
-             <div class="gallery-item year-2022">
-                <img src="assets/project-3.png" alt="Project 2022">
-                <p>Project 2022</p>
+
+             <div class="grid-item 2022">
+               <a href="assets/images/portfolio/2022/082022_portra400_barchetta.jpg" data-lightbox="all" data-title="Schiavonea, Agosto 2022, Tramonto" class="image fit hover-zoom">
+                  <img src="assets/images/portfolio/2022/082022_portra400_barchetta.jpg" alt="barchetta">
+               </a>
              </div>
-             <div class="gallery-item year-2021">
-                <img src="assets/project-1.png" alt="Project 2021">
-                <p>Project 2021</p>
+
+             <div class="grid-item 2022">
+               <a href="assets/images/portfolio/2022/082022_portra400_seifratelli.jpg" data-lightbox="all" data-title="Schiavonea, Agosto 2021, Sei Fratelli" class="image fit hover-zoom">
+                  <img src="assets/images/portfolio/2022/082022_portra400_seifratelli.jpg" alt="sei fratelli">
+               </a>
              </div>
-             <div class="gallery-item year-2020">
-                <img src="assets/project-2.png" alt="Project 2020">
-                <p>Project 2020</p>
+             
+             <div class="grid-item 2020">
+               <a href="assets/images/portfolio/2020/072020_puglia_xt100.jpg" data-lightbox="all" data-title="Puglia, Luglio 2020, Porto Badisco" class="image fit hover-zoom">
+                  <img src="assets/images/portfolio/2020/072020_puglia_xt100.jpg" alt="puglia">
+               </a>
              </div>
-             <div class="gallery-item year-2019">
-                <img src="assets/project-3.png" alt="Project 2019">
-                <p>Project 2019</p>
+
+             <div class="grid-item 2018">
+               <a href="assets/images/portfolio/2018/122018_portra400_saporetti.jpg" data-lightbox="all" data-title="Circeo, Dicembre 2018, Saporetti" class="image fit hover-zoom">
+                  <img src="assets/images/portfolio/2018/122018_portra400_saporetti.jpg" alt="saporetti">
+               </a>
              </div>
           </div>
        </section>       
-         <hr class="footer-separator" />
       </div>
+
+      <hr class="footer-separator" />
       <footer>
          <p>Copyright &#169; 2024 Francesco Spezzano. All Rights Reserved.</p>
       </footer>
+
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
+      <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+      <script src="lightbox/js/lightbox.js"></script>
       <script src="assets/js/script.js"></script>
- 
+      <script src="assets/js/portfolio.js"></script>
    </body>
 </html>
