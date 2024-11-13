@@ -89,7 +89,7 @@ a.logo-container .logo {
 
 .logo-img {
   height: 100%;
-  max-height: 4rem;
+  max-height: 3rem;
   width: auto;
   margin-right: 20px;
 }
@@ -105,20 +105,20 @@ a.logo-container .logo {
   z-index: 100;
 }
 
-.hamburger-icon,
-.close-icon {
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
   cursor: pointer;
-  display: block;
 }
 
-.hamburger-icon i,
-.close-icon i {
-  color: black;
-  transition: all 0.3s ease-in-out;
-}
-
-.close-icon {
-  display: none; /* Hide close icon by default */
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3 ease-in-out;
 }
 
 .menu-links {
@@ -127,10 +127,9 @@ a.logo-container .logo {
   right: 0;
   background-color: white;
   width: fit-content;
-  max-height: 0; /* Initially hide the menu */
-  opacity: 0; /* Initially hide the menu */
+  max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease-in-out; /* Transition for both max-height and opacity */
+  transition: all 0.3 ease-in-out;
 }
 
 .menu-links a {
@@ -140,7 +139,7 @@ a.logo-container .logo {
   font-size: 1.5rem;
   color: black;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3 ease-in-out;
 }
 
 .menu-links li {
@@ -148,19 +147,20 @@ a.logo-container .logo {
 }
 
 .menu-links.open {
-  max-height: 300px; /* Set a high enough value to accommodate the menu content */
-  opacity: 1; /* Show the menu with full opacity */
+  max-height: 300px;
 }
 
-/* Toggle Icons */
-.hamburger-menu.open .hamburger-icon {
-  display: none; /* Hide hamburger icon when menu is open */
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
 }
 
-.hamburger-menu.open .close-icon {
-  display: block; /* Show close icon when menu is open */
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
 }
 
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
 
 /* SECTIONS */
 section {
