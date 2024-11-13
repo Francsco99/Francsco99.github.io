@@ -108,3 +108,19 @@
     width: 100%;
   }
 }
+
+/* MEDIA QUERIES PER SCHERMI MOBILI */
+@media (max-width: 768px) {
+  .button-container {
+    display: flex;
+    flex-wrap: wrap; /* Permette ai pulsanti di andare su più righe */
+    justify-content: center; /* Centra i pulsanti orizzontalmente */
+    gap: 1rem; /* Spazio tra i pulsanti */
+  }
+
+  .button {
+    width: auto; /* Mantiene la larghezza naturale dei pulsanti */
+ /* Imposta una larghezza massima per evitare che i pulsanti siano troppo larghi */
+  }
+}
+
