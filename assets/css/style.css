@@ -348,6 +348,7 @@ article .icon {
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   background: none;
+  color: rgb(53, 53, 53);
 }
 
 .button:hover {
