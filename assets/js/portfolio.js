@@ -2,7 +2,7 @@ var $grid = $('.grid').imagesLoaded( function() {
     $grid.isotope({
       itemSelector: '.grid-item',
       masonry: {
-        columnWidth: 10,
+        columnWidth: 5,
         gutter: 5
       }
     });

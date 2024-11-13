@@ -16,12 +16,15 @@
    </head>
    <body>
       <div class="page-wrapper">
+         <!-- NAVBAR DESKTOP -->
          <nav id="desktop-nav">
+            <!-- Logo cliccabile che porta alla homepage (index.html) -->
             <a href="index.html" class="logo-container">
             <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
             <span class="logo">Francesco Spezzano</span>
             </a>
             <div>
+               <!-- Menu di navigazione principale -->
                <ul class="nav-links">
                   <li><a href="index.html#about">About</a></li>
                   <li><a href="projects.html">Projects</a></li>
@@ -30,16 +33,23 @@
                </ul>
             </div>
          </nav>
+         <!-- NAVBAR MOBILE (Hamburger Menu) -->
          <nav id="hamburger-nav">
+            <!-- Logo cliccabile che porta alla homepage (index.html) -->
             <a href="index.html" class="logo-container">
             <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
             </a>
             <div class="hamburger-menu">
+               <!-- Icona del menu a hamburger, cliccabile per aprire/chiudere il menu -->
                <div class="hamburger-icon" onclick="toggleMenu()">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                  <i class="fa-solid fa-bars fa-2xl"></i>
                </div>
+
+               <div class="close-icon" onclick="toggleMenu()">
+                  <i class="fas fa-xmark fa-2xl"></i>
+               </div>
+
+               <!-- Menu che si apre con il clic sull'icona hamburger -->
                <div class="menu-links">
                   <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
                   <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
