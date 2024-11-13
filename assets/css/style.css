@@ -122,6 +122,7 @@ a.logo-container .logo {
 }
 
 .menu-links {
+  border-radius: 10px;
   position: absolute;
   top: 100%;
   right: 0;
@@ -148,7 +149,7 @@ a.logo-container .logo {
 }
 
 .menu-links.open {
-  max-height: 300px; /* Set a high enough value to accommodate the menu content */
+  max-height: 500px; /* Set a high enough value to accommodate the menu content */
   opacity: 1; /* Show the menu with full opacity */
 }
 

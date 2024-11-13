@@ -1,77 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png"/>
-    <link rel="manifest" href="favicon_io/site.webmanifest" />
-    <link rel="icon" href="favicon_io/favicon.ico" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/mediaqueries.css" />
-  </head>
-  <body>
-    <div class="page-wrapper">
-    <!-- NAVBAR DESKTOP -->
-    <nav id="desktop-nav">
-      <!-- Logo cliccabile che porta alla homepage (index.html) -->
-      <a href="index.html" class="logo-container">
-        <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
-        <span class="logo">Francesco Spezzano</span>
-      </a>
-      <div>
-        <!-- Menu di navigazione principale -->
-        <ul class="nav-links">
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Francesco Spezzano</title>
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png"/>
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png"/>
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png"/>
+      <link rel="manifest" href="favicon_io/site.webmanifest" />
+      <link rel="icon" href="favicon_io/favicon.ico" />
+      <link rel="stylesheet" href="assets/css/style.css" />
+      <link rel="stylesheet" href="assets/css/mediaqueries.css" />
+      <script src="https://kit.fontawesome.com/3f3dd5b20c.js" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="page-wrapper">
+         <!-- NAVBAR DESKTOP -->
+         <nav id="desktop-nav">
+            <!-- Logo cliccabile che porta alla homepage (index.html) -->
+            <a href="index.html" class="logo-container">
+            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
+            <span class="logo">Francesco Spezzano</span>
+            </a>
+            <div>
+               <!-- Menu di navigazione principale -->
+               <ul class="nav-links">
+                  <li><a href="#about">About</a></li>
+                  <li><a href="projects.html">Projects</a></li>
+                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li><a href="#contact">Contact</a></li>
+               </ul>
+            </div>
+         </nav>
+         <!-- NAVBAR MOBILE (Hamburger Menu) -->
+         <nav id="hamburger-nav">
+            <!-- Logo cliccabile che porta alla homepage (index.html) -->
+            <a href="index.html" class="logo-container">
+            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
+            </a>
+            <div class="hamburger-menu">
+               <!-- Icona del menu a hamburger, cliccabile per aprire/chiudere il menu -->
+               <div class="hamburger-icon" onclick="toggleMenu()">
+                  <i class="fa-solid fa-bars fa-2xl"></i>
+               </div>
+               <div class="close-icon" onclick="toggleMenu()">
+                  <i class="fas fa-xmark fa-2xl"></i>
+               </div>
+               <!-- Menu che si apre con il clic sull'icona hamburger -->
+               <div class="menu-links">
+                  <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                  <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
+                  <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
+                  <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+               </div>
+            </div>
+         </nav>
+         <section id="projects">
+            <!-- Descrizione breve della sezione progetti -->
+            <p class="section__text__p1">Browse My Recent</p>
+            <h1 class="title">Projects</h1>
+            <div class="experience-details-container">
+               <!-- Contenitore per i dettagli dei singoli progetti -->
+               <div class="about-containers">
+                  <!-- Primo progetto -->
+                  <div class="details-container color-container">
+                     <div class="article-container">
+                        <img
+                           src="assets/images/graph.png"
+                           alt="Project 1"
+                           class="project-img"
+                           />
+                     </div>
+                     <h2 class="experience-sub-title project-title">Spring Embedder</h2>
+                     <div class="button-container">
+                        <!-- Pulsanti per il link al GitHub e la Demo Live -->
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Github
+                        </button>
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Live Demo
+                        </button>
+                     </div>
+                  </div>
+                  <!-- Secondo progetto -->
+                  <div class="details-container color-container">
+                     <div class="article-container">
+                        <img
+                           src="assets/images/pieChart.png"
+                           alt="Project 2"
+                           class="project-img"
+                           />
+                     </div>
+                     <h2 class="experience-sub-title project-title">Dynamic Pie Chart</h2>
+                     <div class="button-container">
+                        <!-- Pulsanti per il link al GitHub e la Demo Live -->
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Github
+                        </button>
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Live Demo
+                        </button>
+                     </div>
+                  </div>
+                  <!-- Terzo progetto -->
+                  <div class="details-container color-container">
+                     <div class="article-container">
+                        <img
+                           src="./assets/project-3.png"
+                           alt="Project 3"
+                           class="project-img"
+                           />
+                     </div>
+                     <h2 class="experience-sub-title project-title">Project Three</h2>
+                     <div class="button-container">
+                        <!-- Pulsanti per il link al GitHub e la Demo Live -->
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Github
+                        </button>
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Live Demo
+                        </button>
+                     </div>
+                  </div>
+                  <div class="details-container color-container">
+                     <div class="article-container">
+                        <img
+                           src="./assets/project-3.png"
+                           alt="Project 3"
+                           class="project-img"
+                           />
+                     </div>
+                     <h2 class="experience-sub-title project-title">Project Three</h2>
+                     <div class="button-container">
+                        <!-- Pulsanti per il link al GitHub e la Demo Live -->
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Github
+                        </button>
+                        <button
+                           class="button"
+                           onclick="location.href='https://github.com/'"
+                           >
+                        Live Demo
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <hr class="footer-separator" />
       </div>
-    </nav>
-    
-    <!-- NAVBAR MOBILE (Hamburger Menu) -->
-    <nav id="hamburger-nav">
-      <!-- Logo cliccabile che porta alla homepage (index.html) -->
-      <a href="index.html" class="logo-container">
-        <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
-      </a>
-      <div class="hamburger-menu">
-        <!-- Icona del menu a hamburger, cliccabile per aprire/chiudere il menu -->
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <!-- Menu che si apre con il clic sull'icona hamburger -->
-        <div class="menu-links">
-          <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
-          <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    
-    <!-- SEZIONE PROJECTS -->
-    <section id="projects">
-      <!-- Descrizione breve della sezione progetti -->
-      <p class="subtitle">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-    </section>
-    <hr class="footer-separator" />
-    
-  </div>
-    <!-- FOOTER -->
-    <footer>
-      <!-- Testo del copyright -->
-      <p>&#169; 2024 Francesco Spezzano</p>
-    </footer>
-
-    <!-- Script JS per il menu hamburger -->
-    <script src="assets/js/script.js"></script>
-  </body>
+      <!-- FOOTER -->
+      <footer>
+         <!-- Testo del copyright -->
+         <p>&#169; 2024 Francesco Spezzano</p>
+      </footer>
+      <!-- Script JS per il menu hamburger -->
+      <script src="assets/js/script.js"></script>
+   </body>
 </html>
