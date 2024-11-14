@@ -94,6 +94,14 @@ a.nav-link{
 .profile-description{
   text-align: justify;
 }
+
+#sound-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 9999;
+}
 /*PROJECTS.HTML*/
 
 .project-media img {
