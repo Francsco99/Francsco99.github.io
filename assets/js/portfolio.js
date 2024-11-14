@@ -61,7 +61,14 @@ $('.button').on('click', function () {
        // Trova il badge nel pulsante e aggiorna il numero
        const badge = button.querySelector('.badge');
        badge.textContent = count > 0 ? count : ''; // Se non ci sono elementi, lascia il badge vuoto
-    });
+       
+       // Aggiungi la classe 'disabled' se count è 0, altrimenti rimuovila
+      if (count === 0) {
+        button.classList.add('disabled');
+      } else {
+          button.classList.remove('disabled');
+      }
+      });
  }
  
  // Esegui la funzione per aggiornare i badge all'avvio della pagina

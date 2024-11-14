@@ -76,6 +76,10 @@ a.nav-link{
     color: white !important;
 }
 
+.button.disabled{
+    display: none;
+}
+
 /*INDEX.HTML*/
 .logo-name{
     font-size: 1.5em;
