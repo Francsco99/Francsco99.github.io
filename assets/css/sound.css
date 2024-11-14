@@ -1,0 +1,20 @@
+.splash{
+    font-family: 'Minecraft', sans-serif !important;
+    text-align: center;
+	color: #FFFF00;
+	text-shadow: 1px 1px 0px #000;
+	position: relative;
+    right: 20px;
+	bottom: -10px;
+	animation: subtitle .25s;
+    animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+@keyframes subtitle{
+	0%{
+		transform: scale(0.875) rotate(-20deg);
+    }
+	100% {
+		transform: scale(1) rotate(-20deg);
+    }
+}
