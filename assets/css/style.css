@@ -23,9 +23,14 @@ p {
     color: rgb(85, 85, 85);
 }
 
+.subtitle{
+  color: rgb(85, 85, 85);
+}
+
 a {
     color: black !important;
     text-decoration: none;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
 }
 
 a:hover {
