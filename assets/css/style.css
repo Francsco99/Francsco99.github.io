@@ -95,6 +95,10 @@ a.nav-link{
   text-align: justify;
 }
 
+.contact-icons{
+    margin-top: 2rem;
+}
+
 #sound-icon {
     position: fixed;
     bottom: 20px;
