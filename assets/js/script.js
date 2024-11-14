@@ -8,3 +8,5 @@ function toggleMenu() {
   hamburgerIcon.classList.toggle("open");
   closeIcon.classList.toggle("open");
 }
+
+AOS.init();

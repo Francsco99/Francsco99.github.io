@@ -42,6 +42,7 @@ a.nav-link{
 /* BUTTONS */
 .button-container {
     margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -89,6 +90,7 @@ a.nav-link{
   text-align: justify;
 }
 /*PROJECTS.HTML*/
+
 .project-media img {
     max-width: 400px;
     height: auto;
@@ -97,6 +99,12 @@ a.nav-link{
 .project-item {
     text-align: center;
 }
+
+.project-separator{
+  width: 90%; 
+  border: 1px solid #454444;
+}
+
 
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
