@@ -8,57 +8,35 @@
       <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png"/>
       <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png"/>
       <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png"/>
-      <link rel="manifest" href="favicon_io/site.webmanifest" />
       <link rel="icon" href="favicon_io/favicon.ico" />
+      <link rel="manifest" href="favicon_io/site.webmanifest" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="assets/css/style.css" />
-      <link rel="stylesheet" href="assets/css/mediaqueries.css" />
+      <link rel="stylesheet" href="assets/css/new.css"/>
       <script src="https://kit.fontawesome.com/3f3dd5b20c.js" crossorigin="anonymous"></script>
    </head>
    <body>
-      <div class="page-wrapper">
-         <!-- NAVBAR DESKTOP -->
-         <nav id="desktop-nav">
-            <!-- Logo cliccabile che porta alla homepage (index.html) -->
-            <a href="index.html" class="logo-container">
-            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
-            <span class="logo">Francesco Spezzano</span>
+      <nav class="navbar navbar-expand-md navbar-light">
+         <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+               <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img me-2">
+               <span>Francesco Spezzano</span>
             </a>
-            <div>
-               <!-- Menu di navigazione principale -->
-               <ul class="nav-links">
-                  <li><a href="#about">About</a></li>
-                  <li><a href="projects.html">Projects</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="#contact">Contact</a></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                  <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
                </ul>
             </div>
-         </nav>
-         <!-- NAVBAR MOBILE (Hamburger Menu) -->
-         <nav id="hamburger-nav">
-            <!-- Logo cliccabile che porta alla homepage (index.html) -->
-            <a href="index.html" class="logo-container">
-            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
-            </a>
-            <div class="hamburger-menu">
-               <!-- Icona del menu a hamburger, cliccabile per aprire/chiudere il menu -->
-               <div class="hamburger-icon" onclick="toggleMenu()">
-                  <i class="fa-solid fa-bars fa-2xl"></i>
-               </div>
-               <div class="close-icon" onclick="toggleMenu()">
-                  <i class="fas fa-xmark fa-2xl"></i>
-               </div>
-               <!-- Menu che si apre con il clic sull'icona hamburger -->
-               <div class="menu-links">
-                  <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                  <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-                  <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
-                  <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-               </div>
-            </div>
-         </nav>
-         <p class="section__text__p1">Browse My Recent</p>
-         <h1 class="title">Projects</h1>
+         </div>
+      </nav>
+
+         <p class="text-center">Browse My Recent</p>
+         <h1 class="text-center">Projects</h1>
          <!-- Griglia Bootstrap -->
          <div class="container">
             <div class="row mb-4">
@@ -105,18 +83,19 @@
                   </div>
                </div>
             </div>
-            
-            
-         </div>
-         
-         
-      </div>
-      <footer>
-         <hr class="footer-separator" />
-         <!-- Testo del copyright -->
-         <p>&#169; 2024 Francesco Spezzano</p>
+
+         </div>       
+     <!-- Linea prima del footer -->
+      <hr class="my-4 mx-auto" style="width: 90%; border-top: 1px solid #ccc;">
+
+      <!-- FOOTER -->
+      <footer class="text-center py-3">
+         <p class="mb-0">&#169; 2024 Francesco Spezzano</p>
       </footer>
       <!-- Script JS per il menu hamburger -->
+       <!-- JavaScript Bundle with Popper for Bootstrap 5 -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
       <script src="assets/js/script.js"></script>
    </body>
 </html>

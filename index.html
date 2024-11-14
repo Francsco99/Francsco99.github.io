@@ -8,117 +8,86 @@
       <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png"/>
       <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png"/>
       <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png"/>
-      <link rel="manifest" href="favicon_io/site.webmanifest" />
       <link rel="icon" href="favicon_io/favicon.ico" />
-      <link rel="stylesheet" href="assets/css/style.css" />
-      <link rel="stylesheet" href="assets/css/mediaqueries.css" />
+      <link rel="manifest" href="favicon_io/site.webmanifest" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/style.css"/>
       <script src="https://kit.fontawesome.com/3f3dd5b20c.js" crossorigin="anonymous"></script>
    </head>
    <body>
-      <div class="page-wrapper">
-         <!-- NAVBAR DESKTOP -->
-         <nav id="desktop-nav">
-            <!-- Logo cliccabile che porta alla homepage (index.html) -->
-            <a href="index.html" class="logo-container">
-            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
-            <span class="logo">Francesco Spezzano</span>
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-md navbar-light">
+         <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img me-2">
+            <span class="logo-name">Francesco Spezzano</span>
             </a>
-            <div>
-               <!-- Menu di navigazione principale -->
-               <ul class="nav-links">
-                  <li><a href="#about">About</a></li>
-                  <li><a href="projects.html">Projects</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="#contact">Contact</a></li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ms-auto">
+                  <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                  <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                </ul>
             </div>
-         </nav>
-         <!-- NAVBAR MOBILE (Hamburger Menu) -->
-         <nav id="hamburger-nav">
-            <!-- Logo cliccabile che porta alla homepage (index.html) -->
-            <a href="index.html" class="logo-container">
-            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img">
-            </a>
-            <div class="hamburger-menu">
-               <!-- Icona del menu a hamburger, cliccabile per aprire/chiudere il menu -->
-               <div class="hamburger-icon" onclick="toggleMenu()">
-                  <i class="fa-solid fa-bars fa-2xl"></i>
-               </div>
-
-               <div class="close-icon" onclick="toggleMenu()">
-                  <i class="fas fa-xmark fa-2xl"></i>
-               </div>
-
-               <!-- Menu che si apre con il clic sull'icona hamburger -->
-               <div class="menu-links">
-                  <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                  <li><a href="projects.html" onclick="toggleMenu()">Projects</a></li>
-                  <li><a href="portfolio.html" onclick="toggleMenu()">Portfolio</a></li>
-                  <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-               </div>
+         </div>
+      </nav>
+      <!-- ABOUT SECTION -->
+      <div id="about" class="container my-5">
+         <p class="text-center">Get to know more</p>
+         <h1 class="text-center">About me</h1>
+         <div class="row align-items-center">
+            <!-- Immagine più piccola (sinistra su desktop, sopra su mobile) -->
+            <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+               <img src="assets/images/Dexter.webp" alt="Profile picture" class="img-fluid profile-pic">
             </div>
-         </nav>
-         <!-- SEZIONE ABOUT -->
-         <section id="about">
-            <!-- Descrizione breve della sezione -->
-            <p class="section__text__p1">Get To Know More</p>
-            <h1 class="title">About Me</h1>
-            <div class="section-container">
-               <!-- Immagine del profilo -->
-               <div class="section__pic-container">
-                  <img
-                     src="assets/images/Dexter.webp"
-                     alt="Profile picture"
-                     class="about-pic"
-                     />
-               </div>
-               <!-- Dettagli e descrizione personale -->
-               <div class="about-details-container">
-                  <div class="text-container">
-                     <p>
-                        Welcome to my website. 
-                        I am a 24-year-old guy, graduated in Computer Engineering from Roma 3 University, and I am currently pursuing my master's degree in Computer Engineering. 
-                        In addition to my passion for technology, I have a great love for analog photography. 
-                        Experimenting with film and old cameras has become a hobby that I enjoy cultivating in my free time. 
-                        In this online space, I will share with you my experiences, opinions, and knowledge on these two worlds that are so different yet fascinating at the same time. 
-                        I invite you to explore my website and feel free to contact me if you have any questions or simply want to exchange ideas. 
-                        Thank you for visiting!
-                     </p>
-                  </div>
-               </div>
+            <!-- Testo e descrizione personale -->
+            <div class="col-12 col-md-8">
+               <p>
+                  Welcome to my website. I am a 24-year-old guy, graduated in Computer Engineering from Roma 3 University, 
+                  and I am currently pursuing my master's degree in Computer Engineering. In addition to my passion for technology, 
+                  I have a great love for analog photography. Experimenting with film and old cameras has become a hobby that I enjoy cultivating in my free time.
+                  In this online space, I will share with you my experiences, opinions, and knowledge on these two worlds that are so different yet fascinating at the same time.
+                  I invite you to explore my website and feel free to contact me if you have any questions or simply want to exchange ideas.
+                  Thank you for visiting!
+               </p>
             </div>
-         </section>
-         <!-- SEZIONE CONTACT -->
-         <section id="contact">
-            <!-- Descrizione breve della sezione di contatto -->
-            <p class="section__text__p1">Get in Touch</p>
-            <h1 class="title">Contact Me</h1>
-            <div class="contact-icons">
-               <a href="mailto:info@fspezzano.it" target="_blank" aria-label="Email">
-               <i class="fas fa-envelope fa-2xl"></i>
-               </a>
-               <a href="https://www.youtube.com/@fspezzano" target="_blank" aria-label="YouTube">
-               <i class="fa-brands fa-youtube fa-2xl"></i>
-               </a>
-               <a href="https://www.github.com/Francsco99" target="_blank" aria-label="GitHub">
-               <i class="fab fa-github fa-2xl"></i>
-               </a>
-               <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
-               <i class="fab fa-linkedin fa-2xl"></i>
-               </a>
-               <a href="https://www.instagram.com/francesco.spezzano" target="_blank" aria-label="Instagram">
-               <i class="fab fa-instagram fa-2xl"></i>
-               </a>
-            </div>
-         </section>
-         <hr class="footer-separator" />
+         </div>
       </div>
+      <!-- CONTACT SECTION -->
+      <div id="contact" class="container my-5">
+         <h1 class="text-center">Contact Me</h1>
+         <p class="text-center">Get in Touch</p>
+         <div class="d-flex justify-content-center">
+            <a href="mailto:info@fspezzano.it" class="mx-3" aria-label="Email">
+            <i class="fas fa-envelope fa-2xl"></i>
+            </a>
+            <a href="https://www.youtube.com/@fspezzano" class="mx-3" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube fa-2xl"></i>
+            </a>
+            <a href="https://www.github.com/Francsco99" class="mx-3" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github fa-2xl"></i>
+            </a>
+            <a href="https://www.linkedin.com" class="mx-3" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin fa-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/francesco.spezzano" class="mx-3" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram fa-2xl"></i>
+            </a>
+         </div>
+      </div>
+      <!-- Linea prima del footer -->
+      <hr class="my-4 mx-auto" style="width: 90%; border-top: 1px solid #ccc;">
       <!-- FOOTER -->
-      <footer>
-         <!-- Testo del copyright -->
-         <p>&#169; 2024 Francesco Spezzano</p>
+      <footer class="text-center py-3">
+         <p class="mb-0">&#169; 2024 Francesco Spezzano</p>
       </footer>
-      <!-- Script JS per il menu hamburger -->
+      <!-- JavaScript Bundle with Popper for Bootstrap 5 -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
       <script src="assets/js/script.js"></script>
    </body>
 </html>
