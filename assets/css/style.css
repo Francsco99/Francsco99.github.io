@@ -36,7 +36,7 @@ a {
 a:hover {
     color: grey !important;
     text-decoration: underline;
-    text-underline-offset: 1rem;
+    text-underline-offset: 0.7rem;
     text-decoration-color: rgb(181, 181, 181);
 }
 
@@ -99,6 +99,7 @@ a.nav-link{
     margin-top: 2rem;
 }
 
+
 #sound-icon {
     position: fixed;
     bottom: 20px;
@@ -131,6 +132,7 @@ a.nav-link{
  .sound-active {
     animation: pulse 1s ease-out 1; /* L'animazione pulsante si ripete 1 volta, ma in modo esteso */
  }
+
 /*PROJECTS.HTML*/
 
 .project-media img {
@@ -150,9 +152,7 @@ a.nav-link{
 
 /*MEDIA QUERIES*/
 @media (max-width: 768px) {
-    a.nav-link{
-        font-size: 1em;
-    }
+   
     
     .logo-name{
         font-size: 1em;

@@ -1,6 +1,6 @@
-
 const soundIcon = document.getElementById('sound-icon');
 const audio = document.getElementById('audio');
+const img = document.getElementById('profilePic')
 
 // Gestione del click sull'icona del suono
 soundIcon.addEventListener('click', function() {
@@ -18,4 +18,6 @@ soundIcon.addEventListener('click', function() {
    setTimeout(() => {
        soundIcon.classList.remove('sound-active');
    }, 1000);  // 1000ms per far durare l'animazione
+
+   //img.src = "assets/images/pingu_round_hello.png";
 });

@@ -17,25 +17,48 @@
       <script src="https://kit.fontawesome.com/3f3dd5b20c.js" crossorigin="anonymous"></script>
    </head>
    <body>
+      <!-- NAVBAR -->
       <nav class="navbar navbar-expand-md navbar-light">
          <div class="container">
+            <!-- Logo -->
             <a href="index.html" class="navbar-brand d-flex align-items-center">
-            <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img me-2">
-            <span>Francesco Spezzano</span>
+               <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img me-2">
+               <span class="logo-name">Francesco Spezzano</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+      
+            <!-- Toggler visibile solo su mobile -->
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+      
+            <!-- Navbar links visibili su desktop -->
+            <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
                <ul class="navbar-nav ms-auto">
-                  <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-                  <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">DIY</a></li>
+                  <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                </ul>
             </div>
          </div>
       </nav>
+      
+      <!-- Offcanvas visibile solo su mobile -->
+      <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
+         <div class="offcanvas-header">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+         </div>
+         <div class="offcanvas-body">
+            <ul class="navbar-nav">
+               <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+               <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+               <li class="nav-item"><a class="nav-link" href="#">DIY</a></li>
+               <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+               <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+         </div>
+      </div>
       <h6 class="text-center subtitle">Browse My Recent</h6>
       <h1 class="text-center">Photos</h1>
       <!-- Contenitore Portfolio -->
