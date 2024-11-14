@@ -85,6 +85,12 @@ a.nav-link{
     max-height: 4rem;
     width: auto;
 }
+.nav-logo:hover img{
+    transition: opacity 0.3s ease;
+}
+.nav-logo:hover img{
+    opacity: 80%;
+}
 
 .profile-pic{
     max-width: 80%;
