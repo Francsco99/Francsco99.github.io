@@ -108,23 +108,18 @@ a.nav-link{
  @keyframes pulse {
     0% {
        transform: scale(1); /* Inizialmente la dimensione originale */
-       filter: brightness(100%);
     }
     25% {
        transform: scale(1.2); /* Primo ingrandimento */
-       filter: brightness(0) saturate(100%) invert(46%) sepia(89%) saturate(7023%) hue-rotate(0deg) brightness(107%) contrast(102%); /* Colore rosso */
     }
     50% {
-       transform: scale(1); /* Torna alla dimensione originale, ma rimane rossa */
-       filter: brightness(0) saturate(100%) invert(46%) sepia(89%) saturate(7023%) hue-rotate(0deg) brightness(107%) contrast(102%); /* Colore rosso */
+       transform: scale(1); /* Torna alla dimensione originale*/
     }
     75% {
        transform: scale(1.2); /* Secondo ingrandimento */
-       filter: brightness(0) saturate(100%) invert(46%) sepia(89%) saturate(7023%) hue-rotate(0deg) brightness(107%) contrast(102%); /* Colore rosso */
     }
     100% {
        transform: scale(1); /* Torna alla dimensione originale */
-       filter: brightness(100%); /* Torna al colore normale */
     }
  }
 
