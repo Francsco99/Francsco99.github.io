@@ -24,9 +24,10 @@
             <a href="index.html" class="navbar-brand d-flex align-items-center">
                <img src="assets/images/logo_circ.png" alt="Logo" class="logo-img me-2">
                <span class="logo-name">Francesco Spezzano</span>
-            
             </a>
+            
          </div>
+         <span class="splash">Noot Noot</span>
             <!-- Toggler visibile solo su mobile -->
             <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
                <span class="navbar-toggler-icon"></span>
@@ -68,7 +69,7 @@
          <div class="row align-items-center">
             <!-- Immagine più piccola (sinistra su desktop, sopra su mobile) -->
             <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
-               <img id="profilePic" src="assets/images/Dexter.webp" alt="Profile picture" class="img-fluid profile-pic">
+               <img id="profilePic" src="assets/images/Dexter_bianca.png" alt="Profile picture" class="img-fluid profile-pic">
             </div>
             <!-- Testo e descrizione personale -->
             <div class="col-12 col-md-8">
@@ -109,12 +110,12 @@
       <hr class="my-4 mx-auto" style="width: 90%; border-top: 1px solid #ccc;">
       <!-- FOOTER -->
       <footer class="text-center py-3">
-         <p class="mb-0">&#169; 2024 Francesco Spezzano</p>
+         <p class="foot mb-0">&#169; 2024 Francesco Spezzano</p>
       </footer>
 
       <!-- ICONA SONORA -->
       <!-- Icona per riprodurre il suono (posizionata in basso a destra) -->
-      <i id="sound-icon" alt="Play Sound" class="fa-solid fa-bullhorn fa-xl" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100" data-aos-easing="ease-in-sine"></i>
+      <a><i id="sound-icon" alt="Play Sound" class="fa-solid fa-bullhorn fa-xl" data-aos="fade-left" data-aos-duration="500" data-aos-delay="100" data-aos-easing="ease-in-sine"></i></a>
       <!-- Audio -->
       <audio id="audio" src="assets/noot.mp3" preload="auto"></audio>
 
@@ -124,5 +125,16 @@
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script src="assets/js/sound.js"></script>
       <script>AOS.init();</script>
+      <script src="https://unpkg.com/darkmode-js/lib/darkmode-js.min.js"></script>
+      <script>
+         const options = {
+            bottom: '20px',
+            left: '20px',
+            time: '0.5s',
+            label: '🌓', // default: ''
+         };
+         const darkmode = new Darkmode(options);
+         darkmode.showWidget();
+      </script>
    </body>
 </html>

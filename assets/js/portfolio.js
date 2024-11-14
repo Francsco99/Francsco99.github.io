@@ -38,3 +38,32 @@ $('.button').on('click', function () {
   'wrapAround': true,
   'alwaysShowNavOnTouchDevices': true
   });
+
+  function updateBadgeCounts() {
+    // Seleziona tutti gli elementi nella griglia
+    const gridItems = document.querySelectorAll('.grid > div'); // Supponiamo che ogni div dentro .grid rappresenti un elemento
+ 
+    // Itera su ogni pulsante con badge
+    document.querySelectorAll('.button-container .button').forEach(button => {
+       const filterClass = button.getAttribute('data-filter'); // Ottieni l'anno dalla classe, rimuovendo il "."
+       let count;
+        
+       // Conta gli elementi in base al filtro
+       if (filterClass === '*') {
+        console.log(filterClass);
+          // Conteggio totale per 'Show All' (tutti gli elementi nella grid)
+          count = gridItems.length;
+       } else {
+          // Conteggio per elementi con l'anno specificato
+          count = Array.from(gridItems).filter(item => item.classList.contains(filterClass.substring(1))).length;
+       }
+ 
+       // Trova il badge nel pulsante e aggiorna il numero
+       const badge = button.querySelector('.badge');
+       badge.textContent = count > 0 ? count : ''; // Se non ci sono elementi, lascia il badge vuoto
+    });
+ }
+ 
+ // Esegui la funzione per aggiornare i badge all'avvio della pagina
+ updateBadgeCounts();
+ 

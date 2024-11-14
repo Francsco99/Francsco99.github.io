@@ -1,6 +1,6 @@
 /* IMPORT FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
+@import url('https://fonts.cdnfonts.com/css/minecraft-4');
 /* RESET & GENERAL STYLES */
 * {
     margin: 0;
@@ -21,6 +21,26 @@ body {
   
 p {
     color: rgb(85, 85, 85);
+}
+
+body.darkmode--activated p{
+    color: white;
+}
+
+body.darkmode--activated a{
+    color: white !important ;
+}
+
+body.darkmode--activated h1{
+    color: white;
+}
+
+body.darkmode--activated h6{
+    color: white;
+}
+
+body.darkmode-activated .foot{
+    color: white;
 }
 
 .subtitle{
@@ -108,15 +128,15 @@ a.nav-link{
 
 #sound-icon {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 32px;
+    right: 32px;
     cursor: pointer;
     z-index: 9999;
     transition: transform 0.3s ease, filter 0.3s ease; /* Transizione per zoom e colore */
  }
 
  /* Animazione per l'effetto pulsazione */
- @keyframes pulse {
+@keyframes pulse {
     0% {
        transform: scale(1); /* Inizialmente la dimensione originale */
     }
@@ -132,13 +152,33 @@ a.nav-link{
     100% {
        transform: scale(1); /* Torna alla dimensione originale */
     }
- }
+}
 
- /* Classe per applicare l'animazione */
- .sound-active {
+/* Classe per applicare l'animazione */
+.sound-active {
     animation: pulse 1s ease-out 1; /* L'animazione pulsante si ripete 1 volta, ma in modo esteso */
- }
+}
 
+.splash{
+    font-family: 'Minecraft', sans-serif !important;
+    text-align: center;
+	color: #FFFF00;
+	text-shadow: 1px 1px 0px #000;
+	position: relative;
+    right: 20px;
+	bottom: -10px;
+	animation: subtitle .25s;
+    animation-direction: alternate;
+	animation-iteration-count: infinite;
+}
+@keyframes subtitle{
+	0%{
+		transform: scale(0.875) rotate(-20deg);
+    }
+	100% {
+		transform: scale(1) rotate(-20deg);
+    }
+}
 /*PROJECTS.HTML*/
 
 .project-media img {
