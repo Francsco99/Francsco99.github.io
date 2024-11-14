@@ -101,7 +101,37 @@ a.nav-link{
     right: 20px;
     cursor: pointer;
     z-index: 9999;
-}
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transizione per zoom e colore */
+ }
+
+ /* Animazione per l'effetto pulsazione */
+ @keyframes pulse {
+    0% {
+       transform: scale(1); /* Inizialmente la dimensione originale */
+       filter: brightness(100%);
+    }
+    25% {
+       transform: scale(1.2); /* Primo ingrandimento */
+       filter: brightness(0) saturate(100%) invert(46%) sepia(89%) saturate(7023%) hue-rotate(0deg) brightness(107%) contrast(102%); /* Colore rosso */
+    }
+    50% {
+       transform: scale(1); /* Torna alla dimensione originale, ma rimane rossa */
+       filter: brightness(0) saturate(100%) invert(46%) sepia(89%) saturate(7023%) hue-rotate(0deg) brightness(107%) contrast(102%); /* Colore rosso */
+    }
+    75% {
+       transform: scale(1.2); /* Secondo ingrandimento */
+       filter: brightness(0) saturate(100%) invert(46%) sepia(89%) saturate(7023%) hue-rotate(0deg) brightness(107%) contrast(102%); /* Colore rosso */
+    }
+    100% {
+       transform: scale(1); /* Torna alla dimensione originale */
+       filter: brightness(100%); /* Torna al colore normale */
+    }
+ }
+
+ /* Classe per applicare l'animazione */
+ .sound-active {
+    animation: pulse 1s ease-out 1; /* L'animazione pulsante si ripete 1 volta, ma in modo esteso */
+ }
 /*PROJECTS.HTML*/
 
 .project-media img {

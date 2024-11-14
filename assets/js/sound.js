@@ -1,12 +1,21 @@
-// Prendi l'elemento dell'icona e l'elemento audio
+
 const soundIcon = document.getElementById('sound-icon');
 const audio = document.getElementById('audio');
 
-// Gestione del clic sull'icona
-soundIcon.addEventListener('click', () => {
+// Gestione del click sull'icona del suono
+soundIcon.addEventListener('click', function() {
+   // Aggiungi la classe per l'animazione
+   soundIcon.classList.add('sound-active');
+
+   // Riproduci o metti in pausa il suono
    if (audio.paused) {
-       audio.play(); // Riproduce il suono
+       audio.play();
    } else {
-       audio.pause(); // Pausa il suono
+       audio.pause();
    }
+
+   // Rimuovi la classe dopo l'animazione
+   setTimeout(() => {
+       soundIcon.classList.remove('sound-active');
+   }, 1000);  // 1000ms per far durare l'animazione
 });
