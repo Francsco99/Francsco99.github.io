@@ -1,12 +1,27 @@
-var $grid = $('.grid').imagesLoaded( function() {
-    $grid.isotope({
-      itemSelector: '.grid-item',
-      masonry: {
-        columnWidth: 5,
-        gutter: 5
-      }
-    });
+var $grid = $('.grid').imagesLoaded(function() {
+  // Inizializza Isotope
+  $grid.isotope({
+    itemSelector: '.grid-item',
+    masonry: {
+      columnWidth: getColumnWidth(),
+      gutter: 5
+    }
   });
+
+  // Aggiorna columnWidth quando la finestra viene ridimensionata
+  $(window).on('resize', function() {
+    $grid.isotope('option', {
+      masonry: {
+        columnWidth: getColumnWidth() // Reimposta columnWidth in base alla viewport
+      }
+    }).isotope(); // Riesegui il layout
+  });
+
+  // Funzione per determinare columnWidth in base alla viewport
+  function getColumnWidth() {
+    return $(window).width() < 768 ? 2 : 50; // Imposta 2 per mobile, 50 per desktop
+  }
+});
   
 // Filtraggio
 $('.button').on('click', function () {

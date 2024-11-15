@@ -1,6 +1,7 @@
 /* IMPORT FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 /* RESET & GENERAL STYLES */
 * {
     margin: 0;
@@ -95,8 +96,6 @@ a.nav-link{
 .nav-logo:hover img{
     opacity: 80%;
 }
-
-
 
 .profile-pic{
     max-width: 80%;
