@@ -153,29 +153,20 @@ a.nav-link{
     margin-top: 2rem;
 }
 
-#darkmode-icon {
+.darkmode-switch-icon{
     position: fixed;
-    bottom: 32px;
-    left: 32px;
+    bottom: 1.5rem;
+    left: 1.5rem;
     cursor: pointer;
-    z-index: 9999;
- }
-
- #lightmode-icon {
-    display: none;
-    position: fixed;
-    bottom: 32px;
-    left: 32px;
-    cursor: pointer;
-    z-index: 9999;
- }
+    z-index: 1;
+}
 
 #sound-icon {
     position: fixed;
-    bottom: 32px;
-    right: 32px;
+    bottom: 1.5rem;
+    right: 1.5rem;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 1;
     transition: transform 0.3s ease, filter 0.3s ease; /* Transizione per zoom e colore */
  }
 
