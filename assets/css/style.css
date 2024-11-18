@@ -75,11 +75,11 @@ a:hover {
 
 a.nav-link{
     font-size: 1.5em;
+    color: var(--main-color) !important;
 }
-
-i{
-    font-style: normal !important;
-    font-size: 2rem;
+.offcanvas-header,
+.offcanvas-body{
+    background-color: var(--bg-color) !important;
 }
 
 /* BUTTONS */

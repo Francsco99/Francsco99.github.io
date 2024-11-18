@@ -28,9 +28,9 @@
             </a>
          </div>
             <!-- Toggler visibile solo su mobile -->
-            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-               <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" >
+               <i class="fa-solid fa-bars fa-xl"></i>
+            </a>
       
             <!-- Navbar links visibili su desktop -->
             <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
@@ -48,7 +48,9 @@
       <!-- Offcanvas visibile solo su mobile -->
       <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
          <div class="offcanvas-header">
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <a>
+               <i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
+            </a>
          </div>
          <div class="offcanvas-body">
             <ul class="navbar-nav">
