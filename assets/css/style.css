@@ -11,6 +11,7 @@
     --button-bg-color: rgb(85, 85, 85);
     --button-text-color: white;
     --a-underline-color: rgb(180, 180, 180);
+    --project-item-shadow: rgb(216, 216, 216);
 }
 
 [data-theme="dark"]{
@@ -21,6 +22,7 @@
     --button-bg-color: rgb(210, 210, 210);
     --button-text-color: white;
     --a-underline-color: rgb(180, 180, 180);
+    --project-item-shadow: rgb(62, 62, 62);
 }
 
 /* RESET & GENERAL STYLES */
@@ -73,6 +75,11 @@ a:hover {
 
 a.nav-link{
     font-size: 1.5em;
+}
+
+i{
+    font-style: normal !important;
+    font-size: 2rem;
 }
 
 /* BUTTONS */
@@ -197,8 +204,8 @@ a.nav-link{
 /*PROJECTS.HTML*/
 
 .project-media img {
-    max-width: 400px;
-    height: auto;
+    height: 300px;
+    width: 500px;
 }
   
 .project-item {
@@ -208,7 +215,6 @@ a.nav-link{
 .project-separator{
   width: 90%; 
   color: var(--secundary-color);
-  border: 1px solid;
 }
 
 .project-title{
