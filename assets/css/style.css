@@ -1,7 +1,6 @@
 /* IMPORT FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 /*VARIABLES FOR THEMES*/
 [data-theme="light"]{
     --bg-color : white;
@@ -122,8 +121,8 @@ a.nav-link{
 
 /*INDEX.HTML*/
 .logo-name{
-    font-size: 1.7em;
-    font-family: 'Shadows Into Light';
+    font-size: 1.3em;
+    font-family: 'Rock Salt', cursive;
 }
 
 .logo-img {
@@ -231,7 +230,7 @@ a.nav-link{
    
     
     .logo-name{
-        font-size: 1.2em;
+        font-size: 1em;
     }
   
     .logo-img{
