@@ -40,6 +40,10 @@ html, body {
 .navbar{
     background-color: var(--bg-color) !important;
 }
+
+.navbar-toggler{
+    border: none;
+}
   
 body {
     font-family: "Poppins", sans-serif;
