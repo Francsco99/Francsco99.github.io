@@ -1,7 +1,28 @@
 /* IMPORT FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-@import url('https://fonts.cdnfonts.com/css/minecraft-4');
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+/*VARIABLES FOR THEMES*/
+[data-theme="light"]{
+    --bg-color : white;
+    --main-color: black;
+    --secundary-color: rgb(85, 85, 85);
+    --button-border-color:rgb(85, 85, 85);
+    --button-bg-color: rgb(85, 85, 85);
+    --button-text-color: white;
+    --a-underline-color: rgb(180, 180, 180);
+}
+
+[data-theme="dark"]{
+    --bg-color : black;
+    --main-color: white;
+    --secundary-color: rgb(210, 210, 210);
+    --button-border-color:rgb(210, 210, 210);
+    --button-bg-color: rgb(210, 210, 210);
+    --button-text-color: white;
+    --a-underline-color: rgb(180, 180, 180);
+}
+
 /* RESET & GENERAL STYLES */
 * {
     margin: 0;
@@ -12,6 +33,11 @@ html, body {
     height: 100%;
     margin: 0;
     scroll-behavior: smooth;
+    background-color: var(--bg-color);
+}
+
+.navbar{
+    background-color: var(--bg-color) !important;
 }
   
 body {
@@ -21,24 +47,28 @@ body {
 }
   
 p {
-    color: rgb(85, 85, 85);
+    color: var(--secundary-color);
 }
 
 .subtitle{
-  color: rgb(85, 85, 85);
+  color: var(--secundary-color);
+}
+
+.title{
+    color: var(--main-color);
 }
 
 a {
-    color: black !important;
+    color: var(--main-color) !important;
     text-decoration: none;
     transition: color 0.3s ease, text-decoration-color 0.3s ease, text-underline-offset 0.3s ease;
 }
 
 a:hover {
-    color: grey !important;
+    color: var(--secundary-color) !important;
     text-decoration: underline;
     text-underline-offset: 0.7rem;
-    text-decoration-color: rgb(181, 181, 181);
+    text-decoration-color: var(--a-underline-color);
 }
 
 a.nav-link{
@@ -60,21 +90,23 @@ a.nav-link{
     padding: 1rem;
     width: 8rem;
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
+    border: var(--button-border-color) 0.1rem solid;
+    color: var(--button-bg-color);
     background: none;
-    color: rgb(53, 53, 53);
+    
 }
   
 .button:hover {
     text-decoration: none;
     cursor: pointer;
-    background: rgb(53, 53, 53);
-    color: white !important;
+    color: var(--button-text-color) !important;
+    background: var(--button-bg-color);
 }
   
 .button.active {
-    background-color: rgb(53, 53, 53);
-    color: white !important;
+    background-color: var(--button-bg-color);
+    border: var(--button-border-color) 0.1rem solid;
+    color: var(--button-text-color) !important;
 }
 
 .button.disabled{
@@ -83,7 +115,8 @@ a.nav-link{
 
 /*INDEX.HTML*/
 .logo-name{
-    font-size: 1.5em;
+    font-size: 1.7em;
+    font-family: 'Shadows Into Light';
 }
 
 .logo-img {
@@ -110,6 +143,22 @@ a.nav-link{
     margin-top: 2rem;
 }
 
+#darkmode-icon {
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    cursor: pointer;
+    z-index: 9999;
+ }
+
+ #lightmode-icon {
+    display: none;
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    cursor: pointer;
+    z-index: 9999;
+ }
 
 #sound-icon {
     position: fixed;
@@ -158,7 +207,16 @@ a.nav-link{
 
 .project-separator{
   width: 90%; 
-  border: 1px solid #454444;
+  color: var(--secundary-color);
+  border: 1px solid;
+}
+
+.project-title{
+    color: var(--main-color);
+}
+
+.project-description{
+    color: var(--secundary-color);
 }
 
 
@@ -167,7 +225,7 @@ a.nav-link{
    
     
     .logo-name{
-        font-size: 1em;
+        font-size: 1.2em;
     }
   
     .logo-img{
@@ -185,15 +243,3 @@ a.nav-link{
        max-width: 50%; /* Ancora più piccola su dispositivi mobile */
     }
 }
-
-/*DARKMODE*/
-body.darkmode--activated p,
-body.darkmode--activated a,
-body.darkmode--activated h1,
-body.darkmode--activated h6,
-body.darkmode--activated .footer p {
-    color: white !important;
-}
-.darkmode-toggle {
-    z-index: 500;
-  }
