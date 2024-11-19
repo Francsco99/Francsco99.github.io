@@ -1,43 +1,53 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const darkModeIcon = document.getElementById('darkmode-icon');
-  const lightModeIcon = document.getElementById('lightmode-icon');
-  const root = document.documentElement;
+// Funzione per abilitare Dark Mode
+function enableDarkMode() {
+  document.documentElement.setAttribute('data-theme', 'dark');
+  localStorage.setItem('theme', 'dark'); // Salva preferenza
+  document.getElementById('darkmode-icon').style.display = 'none';
+  document.getElementById('lightmode-icon').style.display = 'block';
+}
 
-  // Funzione per attivare il tema scuro
-  function enableDarkMode() {
-    root.setAttribute('data-theme', 'dark');
-    darkModeIcon.style.display = 'none';
-    lightModeIcon.style.display = 'block';
-    saveThemePreference('dark');
+// Funzione per disabilitare Dark Mode
+function disableDarkMode() {
+  document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('theme', 'light'); // Salva preferenza
+  document.getElementById('darkmode-icon').style.display = 'block';
+  document.getElementById('lightmode-icon').style.display = 'none';
+}
+
+// Funzione per applicare tema preferito
+function applyPreferredTheme() {
+  const userPreference = localStorage.getItem('theme'); // Verifica tema salvato
+  const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches; // Verifica tema di sistema
+
+  if (userPreference) {
+      // Se esiste un tema salvato dall'utente
+      if (userPreference === 'dark') {
+          enableDarkMode();
+      } else {
+          disableDarkMode();
+      }
+  } else {
+      // Usa la preferenza di sistema se non c'è una preferenza salvata
+      if (systemPreference) {
+          enableDarkMode();
+      } else {
+          disableDarkMode();
+      }
   }
+}
 
-  // Funzione per attivare il tema chiaro
-  function enableLightMode() {
-    root.setAttribute('data-theme', 'light');
-    darkModeIcon.style.display = 'block';
-    lightModeIcon.style.display = 'none';
-    saveThemePreference('light');
-  }
-
-  // Salva il tema selezionato nel localStorage
-  function saveThemePreference(theme) {
-    localStorage.setItem('theme', theme);
-  }
-
-  // Recupera il tema salvato dal localStorage
-  function applySavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+// Evento per rilevare i cambiamenti di preferenze di sistema
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+  if (event.matches) {
       enableDarkMode();
-    } else {
-      enableLightMode();
-    }
+  } else {
+      disableDarkMode();
   }
-
-  // Applica il tema salvato al caricamento della pagina
-  applySavedTheme();
-
-  // Event listener per il click sulle icone
-  darkModeIcon.addEventListener('click', enableDarkMode);
-  lightModeIcon.addEventListener('click', enableLightMode);
 });
+
+// Gestisci il clic sui pulsanti
+document.getElementById('darkmode-icon').addEventListener('click', enableDarkMode);
+document.getElementById('lightmode-icon').addEventListener('click', disableDarkMode);
+
+// Applica il tema corretto al caricamento della pagina
+applyPreferredTheme();
