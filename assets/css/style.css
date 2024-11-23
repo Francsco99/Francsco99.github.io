@@ -197,10 +197,7 @@ a.nav-link{
 
 /*PROJECTS.HTML*/
 
-.project-media img {
-    height: 300px;
-    width: 500px;
-}
+/*Dimensioni immagini 500x300px*/
   
 .project-item {
     text-align: center;
