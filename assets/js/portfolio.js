@@ -18,25 +18,18 @@ $(".button").on("click", function () {
   // Cambia il lightbox group in base al filtro
   if (filterValue === "*") {
     // Seleziona tutte le immagini e imposta 'all' come gruppo Lightbox
-    $("a[data-lightbox]").attr("data-lightbox", "all");
+    $("a[data-fancybox]").attr("data-fancybox", "all");
   } else {
     // Filtra e imposta il gruppo Lightbox basato sulla classe
-    $("a[data-lightbox]").each(function () {
+    $("a[data-fancybox]").each(function () {
       var itemClasses = $(this).parent().attr("class");
       if (itemClasses.includes(filterValue.slice(1))) {
-        $(this).attr("data-lightbox", filterValue.slice(1)); // Assegna il gruppo corretto
+        $(this).attr("data-fancybox", filterValue.slice(1)); // Assegna il gruppo corretto
       } else {
-        $(this).attr("data-lightbox", ""); // Rimuovi il gruppo dalle altre immagini
+        $(this).attr("data-fancybox", ""); // Rimuovi il gruppo dalle altre immagini
       }
     });
   }
-});
-
-// Inizializza Lightbox
-lightbox.option({
-  resizeDuration: 200,
-  wrapAround: true,
-  alwaysShowNavOnTouchDevices: true,
 });
 
 function updateBadgeCounts() {
@@ -75,3 +68,8 @@ function updateBadgeCounts() {
 
 // Esegui la funzione per aggiornare i badge all'avvio della pagina
 updateBadgeCounts();
+
+AOS.init();
+
+Fancybox.bind("[data-fancybox]", {  
+});
