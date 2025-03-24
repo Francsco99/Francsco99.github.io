@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Video a schermo intero fino a fine con GSAP</title>
+  <style>
+    /* Rimuove margini e padding e nasconde l'overflow orizzontale */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+    /* Ogni sezione occupa il 100% della viewport */
+    section {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .top, .bottom {
+      background-color: #f0f0f0;
+    }
+    /* Sezione video: posizione relativa per il pin e overflow nascosto */
+    .video-section {
+      position: relative;
+      overflow: hidden;
+    }
+    /* Il video occupa tutta la sezione */
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sezione superiore -->
+  <section class="top">
+    <h1>Sezione Superiore</h1>
+  </section>
+  
+  <!-- Sezione centrale con il video -->
+  <section class="video-section">
+    <video id="myVideo" src="https://www.ajalab.it/fspezzano/video/video.MP4" preload="auto" muted></video>
+  </section>
+  
+  <!-- Sezione inferiore -->
+  <section class="bottom">
+    <h1>Sezione Inferiore</h1>
+  </section>
+  
+  <!-- Includi GSAP e ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script>
+    const video = document.getElementById('myVideo');
+
+    video.addEventListener('loadedmetadata', function() {
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Imposta un fattore per determinare la lunghezza dello scroll in relazione alla durata del video.
+      // In questo esempio, 1 secondo di video corrisponde a 100 pixel di scroll.
+      const scrollFactor = 100;
+      const scrollDistance = video.duration * scrollFactor;
+      
+      // Configura lo ScrollTrigger per la sezione del video
+      ScrollTrigger.create({
+        trigger: ".video-section", // elemento che controlla l'animazione
+        start: "top top",          // quando la parte superiore della sezione raggiunge il top della viewport
+        end: "+=" + scrollDistance, // la lunghezza dello scroll è proporzionale alla durata del video
+        scrub: true,               // l'animazione segue lo scroll
+        pin: true,                 // la sezione rimane fissa fino al termine dello scroll
+        onUpdate: self => {
+          // Calcola il tempo corrente del video in base al progresso dello scroll (da 0 a 1)
+          const progress = self.progress;
+          video.currentTime = progress * video.duration;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
