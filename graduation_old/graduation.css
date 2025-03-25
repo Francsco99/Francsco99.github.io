@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 300vh; /* Spazio extra per lo scroll */
+    overflow-x: hidden;
+    background-color: #000;
+    color: white;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* Sezione iniziale con testo */
+  .intro-section {
+    height: 100vh;
+    position: relative;
+  }
+  
+  /* Animazione del testo */
+  .scroll-text {
+    animation: bounce 1.5s infinite;
+    font-size: 3rem;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  
+  /* Contenitore video */
+  .video-wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+  }
+  
+  .video-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    transform: scale(1); /* Scale 1 per evitare zoom eccessivo */
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Usa 'contain' se preferisci evitare ritagli */
+  }
+  
