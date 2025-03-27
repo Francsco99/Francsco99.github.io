@@ -19,6 +19,7 @@ video.addEventListener('loadedmetadata', () => {
           start: "top top",
           end: "bottom top",
           scrub: true,
+          ease:"none",
           pin: true,
           // markers: true, // opzionale per il debugging
         }
