@@ -19,5 +19,5 @@ soundIcon.addEventListener('click', function() {
        soundIcon.classList.remove('sound-active');
    }, 1000);  // 1000ms per far durare l'animazione
 
-   //img.src = "assets/images/pingu_round_hello.png";
+   //img.src = "https://www.ajalab.it/fspezzano/images/pingu_round_hello.png";
 });
