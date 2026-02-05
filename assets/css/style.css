@@ -170,6 +170,10 @@ a.nav-link{
     transition: transform 0.3s ease, filter 0.3s ease; /* Transizione per zoom e colore */
  }
 
+ .footer-link:hover {
+    text-decoration: none !important;
+ }
+
  /* Animazione per l'effetto pulsazione */
 @keyframes pulse {
     0% {
