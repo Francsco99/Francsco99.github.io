@@ -1,3 +1,8 @@
+// assets/js/portfolio.js
+
+// --------------------
+// Isotope init (come hai ora)
+// --------------------
 var $grid = $(".grid").imagesLoaded(function () {
   $grid.isotope({
     itemSelector: ".grid-item",
@@ -8,68 +13,118 @@ var $grid = $(".grid").imagesLoaded(function () {
   });
 });
 
-// Filtraggio
-$(".button").on("click", function () {
-  var filterValue = $(this).attr("data-filter");
-  $grid.isotope({ filter: filterValue });
-  $(".button").removeClass("active");
-  $(this).addClass("active");
+// --------------------
+// Helpers (mobile UX)
+// --------------------
+function getButtonLabel($btn) {
+  // prende solo il testo del bottone senza il badge
+  return $.trim($btn.clone().children().remove().end().text());
+}
 
-  // Cambia il lightbox group in base al filtro
-  if (filterValue === "*") {
-    // Seleziona tutte le immagini e imposta 'all' come gruppo Lightbox
-    $("a[data-fancybox]").attr("data-fancybox", "all");
-  } else {
-    // Filtra e imposta il gruppo Lightbox basato sulla classe
-    $("a[data-fancybox]").each(function () {
-      var itemClasses = $(this).parent().attr("class");
-      if (itemClasses.includes(filterValue.slice(1))) {
-        $(this).attr("data-fancybox", filterValue.slice(1)); // Assegna il gruppo corretto
-      } else {
-        $(this).attr("data-fancybox", ""); // Rimuovi il gruppo dalle altre immagini
-      }
-    });
+function setSelectedLabel(labelText) {
+  $("#yearFilterSelectedLabel").text(labelText);
+
+  // su mobile chiude il collapse dopo selezione
+  var isMobile = window.matchMedia("(max-width: 576px)").matches;
+  if (isMobile) {
+    var el = document.getElementById("yearFiltersMobileCollapse");
+    if (!el) return;
+
+    var instance = bootstrap.Collapse.getInstance(el);
+    if (!instance) instance = new bootstrap.Collapse(el, { toggle: false });
+    instance.hide();
   }
-});
+}
 
-function updateBadgeCounts() {
-  // Seleziona tutti gli elementi nella griglia
-  const gridItems = document.querySelectorAll(".grid > div"); // Supponiamo che ogni div dentro .grid rappresenti un elemento
+function syncActiveState(filterValue) {
+  // sincronizza ACTIVE tra set desktop e set mobile
+  $('.button-container .button[data-filter="' + filterValue + '"]').each(function () {
+    var $btn = $(this);
+    $btn.closest(".button-container").find(".button").removeClass("active");
+    $btn.addClass("active");
+  });
+}
 
-  // Itera su ogni pulsante con badge
-  document.querySelectorAll(".button-container .button").forEach((button) => {
-    const filterClass = button.getAttribute("data-filter"); // Ottieni l'anno dalla classe, rimuovendo il "."
-    let count;
+function updateFancyboxGroups(filterValue) {
+  if (filterValue === "*") {
+    $("a[data-fancybox]").attr("data-fancybox", "all");
+    return;
+  }
 
-    // Conta gli elementi in base al filtro
-    if (filterClass === "*") {
-      console.log(filterClass);
-      // Conteggio totale per 'Show All' (tutti gli elementi nella grid)
-      count = gridItems.length;
+  $("a[data-fancybox]").each(function () {
+    var itemClasses = $(this).parent().attr("class") || "";
+    if (itemClasses.includes(filterValue.slice(1))) {
+      $(this).attr("data-fancybox", filterValue.slice(1));
     } else {
-      // Conteggio per elementi con l'anno specificato
-      count = Array.from(gridItems).filter((item) =>
-        item.classList.contains(filterClass.substring(1))
-      ).length;
-    }
-
-    // Trova il badge nel pulsante e aggiorna il numero
-    const badge = button.querySelector(".badge");
-    badge.textContent = count > 0 ? count : ""; // Se non ci sono elementi, lascia il badge vuoto
-
-    // Aggiungi la classe 'disabled' se count è 0, altrimenti rimuovila
-    if (count === 0) {
-      button.classList.add("disabled");
-    } else {
-      button.classList.remove("disabled");
+      $(this).attr("data-fancybox", "");
     }
   });
 }
 
-// Esegui la funzione per aggiornare i badge all'avvio della pagina
+// --------------------
+// Filtraggio (delegato: funziona sia per desktop che per mobile)
+// --------------------
+$(document).on("click", ".button-container .button", function (e) {
+  e.preventDefault();
+
+  var $btn = $(this);
+  var filterValue = $btn.attr("data-filter");
+
+  $grid.isotope({ filter: filterValue });
+  syncActiveState(filterValue);
+
+  // label mobile (se presente)
+  var labelText = getButtonLabel($btn);
+  setSelectedLabel(labelText);
+
+  updateFancyboxGroups(filterValue);
+
+  // aiuta dopo i filtri
+  $grid.isotope("layout");
+});
+
+// --------------------
+// Badge counts (esclude grid-sizer se lo aggiungi in futuro)
+// --------------------
+function updateBadgeCounts() {
+  const gridItems = document.querySelectorAll(".grid .grid-item");
+
+  document.querySelectorAll(".button-container .button").forEach((button) => {
+    const filterClass = button.getAttribute("data-filter");
+    let count;
+
+    if (filterClass === "*") {
+      count = gridItems.length;
+    } else {
+      const cls = filterClass.substring(1);
+      count = Array.from(gridItems).filter((item) => item.classList.contains(cls)).length;
+    }
+
+    const badge = button.querySelector(".badge");
+    if (badge) badge.textContent = count > 0 ? count : "";
+
+    if (count === 0) button.classList.add("disabled");
+    else button.classList.remove("disabled");
+  });
+}
+
 updateBadgeCounts();
 
+// --------------------
+// Init mobile label (se stai usando il toggle mobile)
+// --------------------
+(function initSelectedLabel() {
+  var $active =
+    $("#yearFiltersMobileButtons .button.active").length
+      ? $("#yearFiltersMobileButtons .button.active")
+      : $(".button-container .button.active").first();
+
+  if ($active.length) setSelectedLabel(getButtonLabel($active));
+})();
+
+// --------------------
+// AOS + Fancybox
+// --------------------
 AOS.init();
 
-Fancybox.bind("[data-fancybox]", {  
-});
+Fancybox.bind("[data-fancybox]", {});

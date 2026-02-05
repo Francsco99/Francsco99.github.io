@@ -79,45 +79,80 @@
          <h1 class="text-center title">Photos</h1>
          <!-- Contenitore Portfolio -->
          <div class="container my-5">
-            <!-- Filtro Anni -->
-            <div class="d-flex justify-content-center flex-wrap mb-4 button-container">
-               <!-- ALL -->
-               <a class="position-relative button m-1 active" data-filter="*">Show All
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">   </span>
-               </a> 
-               <!-- 2025 -->   
-               <a class="position-relative button m-1" data-filter=".y2025">2025
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>  
-               <!-- 2024 -->   
-               <a class="position-relative button m-1" data-filter=".y2024">2024
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">  </span>
-               </a>
-               <!-- 2023 -->
-               <a class="position-relative button m-1" data-filter=".y2023">2023
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>
-               <!-- 2022 -->
-               <a class="position-relative button m-1" data-filter=".y2022">2022
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>
-               <!-- 2021 -->
-               <a class="position-relative button m-1" data-filter=".y2021">2021
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>
-               <!-- 2020 -->
-               <a class="position-relative button m-1" data-filter=".y2020">2020
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>
-               <!-- 2019 -->
-               <a class="position-relative button m-1" data-filter=".y2019">2019
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>
-               <!-- 2018 -->
-               <a class="position-relative button m-1" data-filter=".y2018">2018
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
-               </a>
+            <!-- Filtro desktop (come adesso) -->
+            <div class="d-none d-sm-flex justify-content-center flex-wrap mb-4 button-container" id="yearFiltersDesktop">
+            <a class="position-relative button m-1 active" data-filter="*">Show All
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2025">2025
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2024">2024
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2023">2023
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2022">2022
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2021">2021
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2020">2020
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2019">2019
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
+            <a class="position-relative button m-1" data-filter=".y2018">2018
+               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+            </a>
             </div>
+
+            <!-- Filtro mobile: selected + dropdown -->
+            <div class="d-sm-none mb-4" id="yearFiltersMobile">
+            <div class="d-flex justify-content-center">
+               <button class="btn btn-outline-secondary d-flex align-items-center gap-2 rounded-pill" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#yearFiltersMobileCollapse"
+                        aria-expanded="false" aria-controls="yearFiltersMobileCollapse" id="yearFilterToggle">
+                  <span id="yearFilterSelectedLabel">Show All</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+               </button>
+            </div>
+
+            <div class="collapse mt-3" id="yearFiltersMobileCollapse">
+               <div class="d-flex justify-content-center flex-wrap gap-2 button-container" id="yearFiltersMobileButtons">
+                  <a class="position-relative button active" data-filter="*">Show All
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2025">2025
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2024">2024
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2023">2023
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2022">2022
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2021">2021
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2020">2020
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2019">2019
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+                  <a class="position-relative button" data-filter=".y2018">2018
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"></span>
+                  </a>
+               </div>
+            </div>
+         </div>
             <!-- Galleria -->
             <div class="row justify-content-center grid">
                <div class="col-6 col-md-4 col-lg-3 mb-4 grid-item y2025">

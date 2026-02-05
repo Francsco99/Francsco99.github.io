@@ -232,3 +232,15 @@ a.nav-link{
        max-width: 50%; /* Ancora più piccola su dispositivi mobile */
     }
 }
+
+/* Mobile: rendi i "button" più compatti dentro il collapse */
+@media (max-width: 576px){
+  #yearFiltersMobile .button{
+    padding: .6rem .9rem;
+    width: auto;
+    border-radius: 999px;
+  }
+  #yearFiltersMobile .badge{
+    transform: translate(25%, -35%);
+  }
+}
