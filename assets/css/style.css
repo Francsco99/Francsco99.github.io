@@ -181,15 +181,6 @@ a.nav-link{
     z-index: 1;
 }
 
-#sound-icon {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    cursor: pointer;
-    z-index: 1;
-    transition: transform 0.3s ease, filter 0.3s ease; /* Transizione per zoom e colore */
- }
-
  .footer-link:hover {
     margin-top: auto;
     text-decoration: none !important;
@@ -213,12 +204,6 @@ a.nav-link{
        transform: scale(1); /* Torna alla dimensione originale */
     }
 }
-
-/* Classe per applicare l'animazione */
-.sound-active {
-    animation: pulse 1s ease-out 1; /* L'animazione pulsante si ripete 1 volta, ma in modo esteso */
-}
-
 
 /*PROJECTS.HTML*/
 
