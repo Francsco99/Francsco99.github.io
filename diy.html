@@ -24,30 +24,49 @@
       <!-- Stylesheets -->
       <link rel="stylesheet" href="assets/css/style.css" />
       <!-- FontAwesome Icons -->
-      <script src="https://kit.fontawesome.com/3f3dd5b20c.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    
       <title>FS | DIY</title>
    </head>
    <body>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
-         <div class="container">
-            <!-- Logo -->
-            <div class="nav-logo">
-            <a href="index" class="navbar-brand d-flex align-items-center">
-               <!--<img src="https://www.ajalab.it/fspezzano/images/logo_circ.png" alt="Logo" class="logo-img me-2">-->
-               <span class="logo-name">Francesco Spezzano</span>
-            
-            </a>
-         </div>
-            <!-- Toggler visibile solo su mobile -->
-            <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" >
-               <i class="fa-solid fa-bars fa-xl"></i>
-            </a>
-      
-            <!-- Navbar links visibili su desktop -->
-            <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
-               <ul class="navbar-nav ms-auto">
+      <div class="page-wrap">
+         <!-- NAVBAR -->
+         <nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+            <div class="container">
+               <!-- Logo -->
+               <div class="nav-logo">
+               <a href="index" class="navbar-brand d-flex align-items-center">
+                  <!--<img src="https://www.ajalab.it/fspezzano/images/logo_circ.png" alt="Logo" class="logo-img me-2">-->
+                  <span class="logo-name">Francesco Spezzano</span>
+               
+               </a>
+            </div>
+               <!-- Toggler visibile solo su mobile -->
+               <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" >
+                  <i class="fa-solid fa-bars fa-xl"></i>
+               </a>
+         
+               <!-- Navbar links visibili su desktop -->
+               <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item"><a class="nav-link" href="index">About</a></li>
+                     <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#">DIY</a></li>
+                     <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
+                     <li class="nav-item"><a class="nav-link" href="index#contact">Contact</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <!-- Offcanvas visibile solo su mobile -->
+         <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
+            <div class="offcanvas-header">
+               <a>
+                  <i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
+               </a>
+            </div>
+            <div class="offcanvas-body">
+               <ul class="navbar-nav">
                   <li class="nav-item"><a class="nav-link" href="index">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">DIY</a></li>
@@ -56,28 +75,10 @@
                </ul>
             </div>
          </div>
-      </nav>
-      
-      <!-- Offcanvas visibile solo su mobile -->
-      <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
-         <div class="offcanvas-header">
-            <a>
-               <i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
-            </a>
-         </div>
-         <div class="offcanvas-body">
-            <ul class="navbar-nav">
-               <li class="nav-item"><a class="nav-link" href="index">About</a></li>
-               <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
-               <li class="nav-item"><a class="nav-link" href="#">DIY</a></li>
-               <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
-               <li class="nav-item"><a class="nav-link" href="index#contact">Contact</a></li>
-            </ul>
-         </div>
+
+         <h6 class="text-center subtitle">Browse My Recent</h6>
+         <h1 class="text-center title">DIY Projects</h1>
       </div>
-      <h6 class="text-center subtitle">Browse My Recent</h6>
-      <h1 class="text-center title">DIY Projects</h1>
-      
       <!-- Linea prima del footer -->
       <hr class="my-4 mx-auto" style="width: 90%; border-top: 1px solid #ccc;">
       <!-- FOOTER -->

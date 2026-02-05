@@ -27,99 +27,101 @@
       <title>Francesco Spezzano</title>
    </head>
    <body>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
-         <div class="container">
-            <!-- Logo -->
-            <div class="nav-logo">
-            <a href="index" class="navbar-brand d-flex align-items-center">
-               <!--<img src="https://www.ajalab.it/fspezzano/images/logo_circ.png" alt="Logo" class="logo-img me-2">-->
-               <span class="logo-name">Francesco Spezzano</span>
-            </a>
-            
-         </div>
-         <!--<span class="splash">Noot Noot</span>-->
-            <!-- Toggler visibile solo su mobile -->
-            <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" >
-               <i class="fa-solid fa-bars fa-xl"></i>
-            </a>
-      
-            <!-- Navbar links visibili su desktop -->
-            <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
-               <ul class="navbar-nav ms-auto">
+      <div class="page-wrap">
+         <!-- NAVBAR -->
+         <nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
+            <div class="container">
+               <!-- Logo -->
+               <div class="nav-logo">
+               <a href="index" class="navbar-brand d-flex align-items-center">
+                  <!--<img src="https://www.ajalab.it/fspezzano/images/logo_circ.png" alt="Logo" class="logo-img me-2">-->
+                  <span class="logo-name">Francesco Spezzano</span>
+               </a>
+               
+            </div>
+            <!--<span class="splash">Noot Noot</span>-->
+               <!-- Toggler visibile solo su mobile -->
+               <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" >
+                  <i class="fa-solid fa-bars fa-xl"></i>
+               </a>
+         
+               <!-- Navbar links visibili su desktop -->
+               <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                     <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
+                     <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
+                     <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         
+         <!-- Offcanvas visibile solo su mobile -->
+         <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
+            <div class="offcanvas-header">
+               <a>
+                  <i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
+               </a>
+            </div>
+            <div class="offcanvas-body">
+               <ul class="navbar-nav">
                   <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                   <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
                   <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
                   <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index#contact">Contact</a></li>
                </ul>
             </div>
          </div>
-      </nav>
-      
-      <!-- Offcanvas visibile solo su mobile -->
-      <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
-         <div class="offcanvas-header">
-            <a>
-               <i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
-            </a>
-         </div>
-         <div class="offcanvas-body">
-            <ul class="navbar-nav">
-               <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-               <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
-               <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
-               <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
-               <li class="nav-item"><a class="nav-link" href="index#contact">Contact</a></li>
-            </ul>
-         </div>
-      </div>
-      
-      <!-- ABOUT SECTION -->
-      <div id="about" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
-         <h6 class="text-center subtitle">Get to know more</h6>
-         <h1 class="text-center title">About me</h1>
-         <div class="row align-items-center">
-            <!-- Immagine più piccola (sinistra su desktop, sopra su mobile) -->
-            <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
-               <img id="profilePic" src="assets/images/Dexter_bianca.png" alt="Profile picture" class="img-fluid profile-pic">
-            </div>
-            <!-- Testo e descrizione personale -->
-            <div class="col-12 col-md-8">
-               <p class="profile-description">
-                  Welcome to my website!
-                  I’m a Computer Engineering graduate from Roma Tre University, and I currently work as a DevOps Engineer. 
-                  My academic background has given me a strong foundation in software development and systems architecture, which I now apply in building reliable, automated, and scalable infrastructure.
-                  This website is a space where I share both my academic and personal projects, reflecting the journey I’ve taken through university and into the professional world. 
-                  Beyond my work in tech, I’m passionate about woodworking and analog photography—two creative outlets that allow me to disconnect, slow down, and build or capture things by hand.
-                  Feel free to explore my work, dive into my interests, and reach out if you have any questions or just want to connect. 
-                  I’m always happy to exchange ideas and hear from fellow enthusiasts.
+         
+         <!-- ABOUT SECTION -->
+         <div id="about" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
+            <h6 class="text-center subtitle">Get to know more</h6>
+            <h1 class="text-center title">About me</h1>
+            <div class="row align-items-center">
+               <!-- Immagine più piccola (sinistra su desktop, sopra su mobile) -->
+               <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+                  <img id="profilePic" src="assets/images/Dexter_bianca.png" alt="Profile picture" class="img-fluid profile-pic">
+               </div>
+               <!-- Testo e descrizione personale -->
+               <div class="col-12 col-md-8">
+                  <p class="profile-description">
+                     Welcome to my website!
+                     I’m a Computer Engineering graduate from Roma Tre University, and I currently work as a DevOps Engineer. 
+                     My academic background has given me a strong foundation in software development and systems architecture, which I now apply in building reliable, automated, and scalable infrastructure.
+                     This website is a space where I share both my academic and personal projects, reflecting the journey I’ve taken through university and into the professional world. 
+                     Beyond my work in tech, I’m passionate about woodworking and analog photography—two creative outlets that allow me to disconnect, slow down, and build or capture things by hand.
+                     Feel free to explore my work, dive into my interests, and reach out if you have any questions or just want to connect. 
+                     I’m always happy to exchange ideas and hear from fellow enthusiasts.
 
-                  Thank you for visiting!
-               </p>
+                     Thank you for visiting!
+                  </p>
+               </div>
             </div>
          </div>
-      </div>
-      <!-- CONTACT SECTION -->
-      <div id="contact" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
-         <h6 class="text-center subtitle">Get in Touch</h6>
-         <h1 class="text-center title">Contact Me</h1>
-         <div class="d-flex justify-content-center contact-icons">
-            <a href="mailto:info@fspezzano.it" class="mx-3" aria-label="Email">
-            <i class="fas fa-envelope fa-2xl"></i>
-            </a>
-            <a href="https://www.youtube.com/@fspezzano" class="mx-3" target="_blank" aria-label="YouTube">
-            <i class="fab fa-youtube fa-2xl"></i>
-            </a>
-            <a href="https://www.github.com/Francsco99" class="mx-3" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github fa-2xl"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/fspezzano" class="mx-3" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin fa-2xl"></i>
-            </a>
-            <a href="https://www.instagram.com/francesco.spezzano" class="mx-3" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram fa-2xl"></i>
-            </a>
+         <!-- CONTACT SECTION -->
+         <div id="contact" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
+            <h6 class="text-center subtitle">Get in Touch</h6>
+            <h1 class="text-center title">Contact Me</h1>
+            <div class="d-flex justify-content-center contact-icons">
+               <a href="mailto:info@fspezzano.it" class="mx-3" aria-label="Email">
+               <i class="fas fa-envelope fa-2xl"></i>
+               </a>
+               <a href="https://www.youtube.com/@fspezzano" class="mx-3" target="_blank" aria-label="YouTube">
+               <i class="fab fa-youtube fa-2xl"></i>
+               </a>
+               <a href="https://www.github.com/Francsco99" class="mx-3" target="_blank" aria-label="GitHub">
+               <i class="fab fa-github fa-2xl"></i>
+               </a>
+               <a href="https://www.linkedin.com/in/fspezzano" class="mx-3" target="_blank" aria-label="LinkedIn">
+               <i class="fab fa-linkedin fa-2xl"></i>
+               </a>
+               <a href="https://www.instagram.com/francesco.spezzano" class="mx-3" target="_blank" aria-label="Instagram">
+               <i class="fab fa-instagram fa-2xl"></i>
+               </a>
+            </div>
          </div>
       </div>
       <!-- Linea prima del footer -->

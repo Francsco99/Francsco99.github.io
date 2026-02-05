@@ -3,26 +3,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 /*VARIABLES FOR THEMES*/
 [data-theme="light"]{
-    --bg-color : white;
-    --main-color: black;
-    --secundary-color: rgb(85, 85, 85);
-    --button-border-color:rgb(85, 85, 85);
-    --button-bg-color: rgb(85, 85, 85);
-    --button-text-color: white;
-    --a-underline-color: rgb(180, 180, 180);
-    --project-item-shadow: rgb(216, 216, 216);
+  --bg-color: #ffffff;
+  --main-color: #0f172a;            /* testo principale più “premium” */
+  --secundary-color: #475569;       /* testo secondario */
+  --a-underline-color: rgba(15, 23, 42, .25);
+
+  --card-bg: #ffffff;
+  --muted-bg: #f8fafc;              /* sfondo section leggero */
+  --border-color: rgba(15,23,42,.10);
+
+  --shadow-soft: 0 10px 30px rgba(15,23,42,.08);
+  --shadow-hover: 0 16px 40px rgba(15,23,42,.12);
+
+  --button-border-color: rgba(15,23,42,.25);
+  --button-bg-color: #0f172a;
+  --button-text-color: #ffffff;
 }
 
 [data-theme="dark"]{
-    --bg-color : black;
-    --main-color: white;
-    --secundary-color: rgb(210, 210, 210);
-    --button-border-color:rgb(210, 210, 210);
-    --button-bg-color: rgb(210, 210, 210);
-    --button-text-color: white;
-    --a-underline-color: rgb(180, 180, 180);
-    --project-item-shadow: rgb(62, 62, 62);
+  --bg-color: #0b1220;              /* non nero puro */
+  --main-color: #e5e7eb;
+  --secundary-color: #a6adbb;
+  --a-underline-color: rgba(229,231,235,.25);
+
+  --card-bg: rgba(255,255,255,.04);
+  --muted-bg: rgba(255,255,255,.02);
+  --border-color: rgba(255,255,255,.10);
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.40);
+  --shadow-hover: 0 16px 40px rgba(0,0,0,.55);
+
+  --button-border-color: rgba(255,255,255,.25);
+  --button-bg-color: #e5e7eb;
+  --button-text-color: #0b1220;
 }
+
 
 /* RESET & GENERAL STYLES */
 * {
@@ -37,6 +52,10 @@ html, body {
     background-color: var(--bg-color);
 }
 
+.page-wrap {
+  flex: 1 0 auto;   /* prende lo spazio disponibile */
+}
+
 .navbar{
     background-color: var(--bg-color) !important;
 }
@@ -46,6 +65,7 @@ html, body {
 }
   
 body {
+    min-height: 100vh;
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
@@ -77,7 +97,7 @@ a:hover {
 }
 
 a.nav-link{
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: var(--main-color) !important;
 }
 .offcanvas-header,
@@ -171,6 +191,7 @@ a.nav-link{
  }
 
  .footer-link:hover {
+    margin-top: auto;
     text-decoration: none !important;
  }
 
