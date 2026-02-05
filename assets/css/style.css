@@ -186,24 +186,6 @@ a.nav-link{
     text-decoration: none !important;
  }
 
- /* Animazione per l'effetto pulsazione */
-@keyframes pulse {
-    0% {
-       transform: scale(1); /* Inizialmente la dimensione originale */
-    }
-    25% {
-       transform: scale(1.2); /* Primo ingrandimento */
-    }
-    50% {
-       transform: scale(1); /* Torna alla dimensione originale*/
-    }
-    75% {
-       transform: scale(1.2); /* Secondo ingrandimento */
-    }
-    100% {
-       transform: scale(1); /* Torna alla dimensione originale */
-    }
-}
 
 /*PROJECTS.HTML*/
 
