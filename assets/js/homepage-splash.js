@@ -13,13 +13,6 @@
     return;
   }
 
-  // Non ripetere se ricarichi/torni indietro
-  const KEY = "fs_splash_done";
-  if (sessionStorage.getItem(KEY) === "1") {
-    splash.remove();
-    return;
-  }
-
   // Aspetta che layout/font siano pronti
   const ready = async () => {
     try {
