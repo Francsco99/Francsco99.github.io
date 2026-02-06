@@ -1,12 +1,14 @@
 /* assets/css/style.css */
 
-/* IMPORT FONTS */
+/* ========================================================================== */
+/*  IMPORTS                                                                   */
+/* ========================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 
-/* ------------------------- */
-/* THEME VARIABLES           */
-/* ------------------------- */
+/* ========================================================================== */
+/*  THEME VARIABLES                                                           */
+/* ========================================================================== */
 [data-theme="light"] {
   --bg-color: #ffffff;
   --main-color: #0f172a;
@@ -47,9 +49,9 @@
   --hero-accent-bg: rgba(229, 231, 235, 0.1);
 }
 
-/* ------------------------- */
-/* RESET & BASE              */
-/* ------------------------- */
+/* ========================================================================== */
+/*  RESET & BASE                                                              */
+/* ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -74,10 +76,8 @@ body {
   flex: 1 0 auto;
 }
 
-p {
-  color: var(--secundary-color);
-}
-
+/* Typography */
+p,
 .subtitle {
   color: var(--secundary-color);
 }
@@ -86,6 +86,7 @@ p {
   color: var(--main-color);
 }
 
+/* Links */
 a {
   color: var(--main-color) !important;
   text-decoration: none;
@@ -99,9 +100,9 @@ a:hover {
   text-decoration-color: var(--a-underline-color);
 }
 
-/* ------------------------- */
-/* NAVBAR                    */
-/* ------------------------- */
+/* ========================================================================== */
+/*  NAVBAR                                                                    */
+/* ========================================================================== */
 .navbar {
   background-color: var(--bg-color) !important;
   border-bottom: 1px solid var(--border-color);
@@ -111,20 +112,19 @@ a:hover {
   border: none;
 }
 
+/* Logo hover */
 .nav-logo:hover img {
   transition: opacity 0.3s ease;
-}
-
-.nav-logo:hover img {
   opacity: 80%;
 }
 
+/* Links */
 a.nav-link {
   font-size: 1.1em;
   color: var(--main-color) !important;
 }
 
-/* Navbar underline animation */
+/* Underline animation */
 .navbar .nav-link {
   position: relative;
   display: inline-block;
@@ -148,14 +148,15 @@ a.nav-link {
   width: 100%;
 }
 
+/* Offcanvas */
 .offcanvas-header,
 .offcanvas-body {
   background-color: var(--bg-color) !important;
 }
 
-/* ------------------------- */
-/* BUTTONS (FILTER)          */
-/* ------------------------- */
+/* ========================================================================== */
+/*  BUTTONS (FILTER)                                                          */
+/* ========================================================================== */
 .button-container {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -192,9 +193,9 @@ a.nav-link {
   display: none;
 }
 
-/* ------------------------- */
-/* INDEX / GLOBAL COMPONENTS */
-/* ------------------------- */
+/* ========================================================================== */
+/*  GLOBAL / INDEX COMPONENTS                                                 */
+/* ========================================================================== */
 .logo-name {
   font-size: 1.3em;
   font-family: "Rock Salt", cursive;
@@ -214,9 +215,9 @@ a.nav-link {
   text-align: justify;
 }
 
-/* ------------------------- */
-/* HERO (NEW)                */
-/* ------------------------- */
+/* ========================================================================== */
+/*  HERO                                                                      */
+/* ========================================================================== */
 .hero {
   position: relative;
   padding: 4.5rem 0 2.5rem;
@@ -227,6 +228,7 @@ a.nav-link {
   position: relative;
 }
 
+/* Background accents */
 .hero::before {
   content: "";
   position: absolute;
@@ -236,6 +238,7 @@ a.nav-link {
     radial-gradient(700px 300px at 80% 35%, var(--hero-accent-bg), transparent 60%);
 }
 
+/* Text */
 .hero-title {
   color: var(--main-color);
   font-weight: 600;
@@ -253,6 +256,7 @@ a.nav-link {
 .hero-subtitle {
   color: var(--secundary-color);
   font-size: 1.05rem;
+  text-align: center; /* mobile */
 }
 
 .hero-kicker,
@@ -262,6 +266,7 @@ a.nav-link {
   opacity: 0.9;
 }
 
+/* Typing caret */
 .hero-caret {
   display: inline-block;
   width: 10px;
@@ -278,27 +283,12 @@ a.nav-link {
   }
 }
 
-/* CTA alignment fix: center on mobile, left on md+ */
+/* CTA alignment: center on mobile, left on md+ */
 .hero-cta {
   justify-content: center;
 }
 
-/* NEW: center typing/subtitle on mobile */
-.hero-subtitle {
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .hero-cta {
-    justify-content: flex-start;
-  }
-
-  /* back to left on md+ */
-  .hero-subtitle {
-    text-align: left;
-  }
-}
-
+/* Buttons */
 .hero-btn-primary {
   background: var(--button-bg-color);
   color: var(--button-text-color) !important;
@@ -330,6 +320,7 @@ a.nav-link {
   box-shadow: var(--shadow-soft);
 }
 
+/* Photo card */
 .hero-photo-wrap {
   display: inline-block;
   border-radius: 24px;
@@ -346,9 +337,20 @@ a.nav-link {
   height: auto;
 }
 
-/* ------------------------- */
-/* CONTACT                   */
-/* ------------------------- */
+/* Hero responsive adjustments */
+@media (min-width: 768px) {
+  .hero-cta {
+    justify-content: flex-start;
+  }
+
+  .hero-subtitle {
+    text-align: left;
+  }
+}
+
+/* ========================================================================== */
+/*  CONTACT                                                                   */
+/* ========================================================================== */
 .contact-icons {
   margin-top: 2rem;
 }
@@ -365,9 +367,9 @@ a.nav-link {
   text-decoration: none;
 }
 
-/* ------------------------- */
-/* DARKMODE SWITCH ICONS     */
-/* ------------------------- */
+/* ========================================================================== */
+/*  DARKMODE SWITCH                                                           */
+/* ========================================================================== */
 .darkmode-switch-icon {
   position: fixed;
   bottom: 1.5rem;
@@ -376,17 +378,17 @@ a.nav-link {
   z-index: 1;
 }
 
-/* ------------------------- */
-/* FOOTER                    */
-/* ------------------------- */
+/* ========================================================================== */
+/*  FOOTER                                                                    */
+/* ========================================================================== */
 .footer-link:hover {
   margin-top: auto;
   text-decoration: none !important;
 }
 
-/* ------------------------- */
-/* PROJECTS.HTML (existing)  */
-/* ------------------------- */
+/* ========================================================================== */
+/*  PROJECTS.HTML                                                             */
+/* ========================================================================== */
 .project-item {
   text-align: center;
 }
@@ -404,14 +406,14 @@ a.nav-link {
   color: var(--secundary-color);
 }
 
-/* ------------------------------ */
-/* PORTFOLIO GRID (Isotope stable) */
-/* ------------------------------ */
+/* ========================================================================== */
+/*  PORTFOLIO GRID (Isotope stable)                                           */
+/* ========================================================================== */
 .grid {
   position: relative;
 }
 
-/* mobile: 2 columns */
+/* Mobile: 2 columns */
 .grid-item,
 .grid-sizer {
   width: calc(50% - 10px);
@@ -441,9 +443,9 @@ a.nav-link {
   }
 }
 
-/* ------------------------- */
-/* MEDIA QUERIES             */
-/* ------------------------- */
+/* ========================================================================== */
+/*  RESPONSIVE (GENERAL)                                                      */
+/* ========================================================================== */
 @media (max-width: 768px) {
   .logo-name {
     font-size: 1em;
@@ -479,11 +481,10 @@ a.nav-link {
   }
 }
 
-
-
-
-
-/* SPLASH mobile: schermata bianca con FS centrato */
+/* ========================================================================== */
+/*  MOBILE SPLASH (FS)                                                        */
+/* ========================================================================== */
+/* Mobile: schermata bianca con FS centrato */
 .mobile-splash {
   position: fixed;
   inset: 0;
@@ -495,7 +496,7 @@ a.nav-link {
   overflow: hidden;
 }
 
-/* testo FS */
+/* Testo "FS" */
 .mobile-splash-fs {
   font-family: "Rock Salt", cursive;
   color: var(--main-color);
@@ -505,30 +506,31 @@ a.nav-link {
   transform: translate3d(0, 0, 0);
 }
 
-/* attivo solo su mobile */
+/* Attivo solo su mobile */
 @media (max-width: 768px) {
   .mobile-splash {
     display: flex;
   }
 }
 
-/* stato durante animazione (gestito da JS) */
+/* Stato durante animazione (gestito da JS) */
 .mobile-splash.is-animating .mobile-splash-fs {
   transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
 }
 
-/* quando finita: nascondi overlay */
+/* Quando finita: nascondi overlay */
 .mobile-splash.is-done {
   opacity: 0;
   pointer-events: none;
   transition: opacity 250ms ease;
 }
 
-/* accessibilità: se preferenze riduzione movimento */
+/* Accessibilità: riduzione movimento */
 @media (prefers-reduced-motion: reduce) {
   .mobile-splash.is-animating .mobile-splash-fs {
     transition: none;
   }
+
   .mobile-splash.is-done {
     transition: none;
   }
