@@ -1,162 +1,254 @@
+<!-- index.html (fixed: single photo, centered buttons on mobile, slower typing) -->
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-      <!-- jQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
-      <link rel="icon" href="favicon/favicon.ico" />
-      <link rel="manifest" href="favicon/site.webmanifest" />
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-      <!--Bootstrap-->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-      <!--AOS-->
-      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-      <!-- Stylesheets -->
-      <link rel="stylesheet" href="assets/css/style.css" />
-      <!-- FontAwesome Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      
-      <title>Francesco Spezzano</title>
-   </head>
-   <body>
-      <div class="page-wrap">
-         <!-- NAVBAR -->
-         <nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
-            <div class="container">
-               <!-- Logo -->
-               <div class="nav-logo">
-               <a href="index" class="navbar-brand d-flex align-items-center">
-                  <!--<img src="https://www.ajalab.it/fspezzano/images/logo_circ.png" alt="Logo" class="logo-img me-2">-->
-                  <span class="logo-name">Francesco Spezzano</span>
-               </a>
-               
-            </div>
-            <!--<span class="splash">Noot Noot</span>-->
-               <!-- Toggler visibile solo su mobile -->
-               <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" >
-                  <i class="fa-solid fa-bars fa-xl"></i>
-               </a>
-         
-               <!-- Navbar links visibili su desktop -->
-               <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
-                  <ul class="navbar-nav ms-auto">
-                     <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                     <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
-                     <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
-                     <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
-                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                  </ul>
-               </div>
-            </div>
-         </nav>
-         
-         <!-- Offcanvas visibile solo su mobile -->
-         <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
-            <div class="offcanvas-header">
-               <a>
-                  <i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
-               </a>
-            </div>
-            <div class="offcanvas-body">
-               <ul class="navbar-nav">
-                  <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                  <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
-                  <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
-                  <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
-                  <li class="nav-item"><a class="nav-link" href="index#contact">Contact</a></li>
-               </ul>
-            </div>
-         </div>
-         
-         <!-- ABOUT SECTION -->
-         <div id="about" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
-            <h6 class="text-center subtitle">Get to know more</h6>
-            <h1 class="text-center title">About me</h1>
-            <div class="row align-items-center">
-               <!-- Immagine più piccola (sinistra su desktop, sopra su mobile) -->
-               <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
-                  <img id="profilePic" src="assets/images/Dexter_bianca.png" alt="Profile picture" class="img-fluid profile-pic">
-               </div>
-               <!-- Testo e descrizione personale -->
-               <div class="col-12 col-md-8">
-                  <p class="profile-description">
-                     Welcome to my website!
-                     I’m a Computer Engineering graduate from Roma Tre University, and I currently work as a DevOps Engineer. 
-                     My academic background has given me a strong foundation in software development and systems architecture, which I now apply in building reliable, automated, and scalable infrastructure.
-                     This website is a space where I share both my academic and personal projects, reflecting the journey I’ve taken through university and into the professional world. 
-                     Beyond my work in tech, I’m passionate about woodworking and analog photography—two creative outlets that allow me to disconnect, slow down, and build or capture things by hand.
-                     Feel free to explore my work, dive into my interests, and reach out if you have any questions or just want to connect. 
-                     I’m always happy to exchange ideas and hear from fellow enthusiasts.
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="icon" href="favicon/favicon.ico" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
 
-                     Thank you for visiting!
-                  </p>
-               </div>
-            </div>
-         </div>
-         <!-- CONTACT SECTION -->
-         <div id="contact" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
-            <h6 class="text-center subtitle">Get in Touch</h6>
-            <h1 class="text-center title">Contact Me</h1>
-            <div class="d-flex justify-content-center contact-icons">
-               <a href="mailto:info@fspezzano.it" class="mx-3" aria-label="Email">
-               <i class="fas fa-envelope fa-2xl"></i>
-               </a>
-               <a href="https://www.youtube.com/@fspezzano" class="mx-3" target="_blank" aria-label="YouTube">
-               <i class="fab fa-youtube fa-2xl"></i>
-               </a>
-               <a href="https://www.github.com/Francsco99" class="mx-3" target="_blank" aria-label="GitHub">
-               <i class="fab fa-github fa-2xl"></i>
-               </a>
-               <a href="https://www.linkedin.com/in/fspezzano" class="mx-3" target="_blank" aria-label="LinkedIn">
-               <i class="fab fa-linkedin fa-2xl"></i>
-               </a>
-               <a href="https://www.instagram.com/francesco.spezzano" class="mx-3" target="_blank" aria-label="Instagram">
-               <i class="fab fa-instagram fa-2xl"></i>
-               </a>
-            </div>
-         </div>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Francesco Spezzano</title>
+  </head>
+
+  <body>
+
+   <div id="mobileSplash" class="mobile-splash" aria-hidden="true">
+      <div id="mobileSplashFS" class="mobile-splash-fs">FS</div>
+   </div>
+
+    <div class="page-wrap">
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-md navbar-light sticky-top">
+        <div class="container">
+          <div class="nav-logo">
+            <a href="index" class="navbar-brand d-flex align-items-center">
+              <span class="logo-name">Francesco Spezzano</span>
+            </a>
+          </div>
+
+          <!-- Toggler (mobile) -->
+          <a class="navbar-toggler d-md-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+            <i class="fa-solid fa-bars fa-xl"></i>
+          </a>
+
+          <!-- Navbar links (desktop) -->
+          <div class="collapse navbar-collapse d-none d-md-flex" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
+              <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Offcanvas (mobile) -->
+      <div class="offcanvas offcanvas-end d-md-none" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <a><i class="fa-solid fa-xmark fa-2xl" data-bs-dismiss="offcanvas"></i></a>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="diy">DIY</a></li>
+            <li class="nav-item"><a class="nav-link" href="portfolio">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <!-- Linea prima del footer -->
-      <hr class="my-4 mx-auto" style="width: 90%; border-top: 1px solid #ccc;">
-      <!-- FOOTER -->
-      <footer class="py-3">
+
+      <!-- HERO -->
+      <header class="hero">
+        <div class="container hero-inner">
+          <div class="row align-items-center g-4">
+            <!-- Text -->
+            <div class="col-12 col-md-7" data-aos="fade-up" data-aos-duration="850">
+              <h1 class="hero-title mb-3">
+                I build
+                <span class="hero-accent">reliable systems</span>
+                and
+                <span class="hero-accent">hands-on projects</span>.
+              </h1>
+
+              <p class="hero-subtitle mb-4">
+                <span class="hero-kicker">DevOps Engineer •</span>
+                <span id="typeTarget" class="hero-typing" aria-label="Rotating roles"></span>
+                <span class="hero-caret" aria-hidden="true"></span>
+              </p>
+
+              <!-- centered on mobile, left on md+ -->
+              <div class="d-flex flex-wrap gap-2 hero-cta">
+                <a href="projects" class="btn hero-btn-primary">View Projects</a>
+                <a href="#contact" class="btn hero-btn-secondary">Contact Me</a>
+              </div>
+            </div>
+
+            <!-- Single photo (only here) -->
+            <div class="col-12 col-md-5 text-center" data-aos="fade-up" data-aos-delay="150" data-aos-duration="850">
+              <div class="hero-photo-wrap">
+                <img
+                  src="assets/images/Dexter_bianca.png"
+                  alt="Profile picture"
+                  class="img-fluid hero-photo"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ABOUT SECTION (photo removed to avoid duplication) -->
+      <div id="about" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
+        <h6 class="text-center subtitle">Get to know more</h6>
+        <h1 class="text-center title">About me</h1>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <p class="profile-description">
+              Welcome to my website!
+              I’m a Computer Engineering graduate from Roma Tre University, and I currently work as a DevOps Engineer.
+              My academic background has given me a strong foundation in software development and systems architecture,
+              which I now apply in building reliable, automated, and scalable infrastructure.
+              This website is a space where I share both my academic and personal projects, reflecting the journey I’ve
+              taken through university and into the professional world.
+              Beyond my work in tech, I’m passionate about woodworking and analog photography—two creative outlets that
+              allow me to disconnect, slow down, and build or capture things by hand.
+              Feel free to explore my work, dive into my interests, and reach out if you have any questions or just want
+              to connect. I’m always happy to exchange ideas and hear from fellow enthusiasts.
+              Thank you for visiting!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT SECTION -->
+      <div id="contact" class="container my-5" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100">
+        <h6 class="text-center subtitle">Get in Touch</h6>
+        <h1 class="text-center title">Contact Me</h1>
+
+        <div class="d-flex justify-content-center contact-icons">
+          <a
+            href="mailto:info@fspezzano.it"
+            class="mx-3 contact-link"
+            aria-label="Email"
+            data-bs-toggle="tooltip"
+            data-bs-title="Email"
+          >
+            <i class="fas fa-envelope fa-2xl"></i>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@fspezzano"
+            class="mx-3 contact-link"
+            target="_blank"
+            aria-label="YouTube"
+            data-bs-toggle="tooltip"
+            data-bs-title="YouTube"
+          >
+            <i class="fab fa-youtube fa-2xl"></i>
+          </a>
+
+          <a
+            href="https://www.github.com/Francsco99"
+            class="mx-3 contact-link"
+            target="_blank"
+            aria-label="GitHub"
+            data-bs-toggle="tooltip"
+            data-bs-title="GitHub"
+          >
+            <i class="fab fa-github fa-2xl"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/fspezzano"
+            class="mx-3 contact-link"
+            target="_blank"
+            aria-label="LinkedIn"
+            data-bs-toggle="tooltip"
+            data-bs-title="LinkedIn"
+          >
+            <i class="fab fa-linkedin fa-2xl"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/francesco.spezzano"
+            class="mx-3 contact-link"
+            target="_blank"
+            aria-label="Instagram"
+            data-bs-toggle="tooltip"
+            data-bs-title="Instagram"
+          >
+            <i class="fab fa-instagram fa-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider + Footer -->
+    <hr class="my-4 mx-auto" style="width: 90%; border-top: 1px solid #ccc;" />
+    <footer class="py-3">
       <div class="container">
-         <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center text-center gap-1">
-            <p class="mb-0 subtitle">&#169; 2026 Francesco Spezzano</p>
-            <span class="d-none d-sm-inline mx-2">-</span>
-            <a href="https://www.ajalab.it" class="footer-link">Made with 🌶️ by Ajalàb</a>
-         </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center text-center gap-1">
+          <p class="mb-0 subtitle">&#169; 2026 Francesco Spezzano</p>
+          <span class="d-none d-sm-inline mx-2">-</span>
+          <a href="https://www.ajalab.it" class="footer-link">Made with 🌶️ by Ajalàb</a>
+        </div>
       </div>
-      </footer>
+    </footer>
 
-      <!-- ICONE UTILITY -->
-      <a>
-         <i id="darkmode-icon" alt="Dark mode" class="fa-solid fa-moon fa-xl darkmode-switch-icon" data-aos="fade-right" data-aos-duration="300"></i>
-         <i id="lightmode-icon" alt="Light mode" class="fa-solid fa-sun fa-xl darkmode-switch-icon" data-aos="fade-right" data-aos-duration="300"></i>
-      </a>
+    <!-- Utility icons -->
+    <a>
+      <i id="darkmode-icon" alt="Dark mode" class="fa-solid fa-moon fa-xl darkmode-switch-icon" data-aos="fade-right" data-aos-duration="300"></i>
+      <i id="lightmode-icon" alt="Light mode" class="fa-solid fa-sun fa-xl darkmode-switch-icon" data-aos="fade-right" data-aos-duration="300"></i>
+    </a>
 
-      <!-- Scripts -->
-      <!-- Bootstrap and Popper JS -->
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-      <!-- Images Loaded -->
-      <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
-      <!-- Isotope -->
-      <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-      <!-- AOS -->
-      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-      <script>AOS.init();</script>
-      <!-- Fancybox -->
-      <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-      <!-- Custom scripts -->
-      <script src="assets/js/darkmode.js"></script>
-   </body>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="assets/js/darkmode.js"></script>
+
+    <!-- NEW -->
+    <script src="assets/js/homepage-ui.js"></script>
+
+    <script src="assets/js/homepage-splash.js"></script>
+  </body>
 </html>
