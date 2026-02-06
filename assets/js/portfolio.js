@@ -1,16 +1,24 @@
 // assets/js/portfolio.js
 
 // --------------------
-// Isotope init (come hai ora)
+// Isotope init (stabile: percent + sizer)
 // --------------------
 var $grid = $(".grid").imagesLoaded(function () {
   $grid.isotope({
     itemSelector: ".grid-item",
+    percentPosition: true,
     masonry: {
-      columnWidth: 5,
-      gutter: 5,
+      columnWidth: ".grid-sizer",
+      gutter: ".gutter-sizer",
     },
   });
+});
+
+// ricalcolo robusto su load/resize/orientamento
+$(window).on("load resize orientationchange", function () {
+  if ($grid && $grid.data("isotope")) {
+    $grid.isotope("layout");
+  }
 });
 
 // --------------------
@@ -84,7 +92,7 @@ $(document).on("click", ".button-container .button", function (e) {
 });
 
 // --------------------
-// Badge counts (esclude grid-sizer se lo aggiungi in futuro)
+// Badge counts (esclude grid-sizer e gutter-sizer)
 // --------------------
 function updateBadgeCounts() {
   const gridItems = document.querySelectorAll(".grid .grid-item");
@@ -111,7 +119,7 @@ function updateBadgeCounts() {
 updateBadgeCounts();
 
 // --------------------
-// Init mobile label (se stai usando il toggle mobile)
+// Init mobile label
 // --------------------
 (function initSelectedLabel() {
   var $active =
