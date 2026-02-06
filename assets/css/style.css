@@ -515,7 +515,7 @@ a.nav-link {
 
 /* Stato durante animazione (gestito da JS) */
 .mobile-splash.is-animating .mobile-splash-fs {
-  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+  transition: transform 1800ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
 }
 
 /* Quando finita: nascondi overlay */

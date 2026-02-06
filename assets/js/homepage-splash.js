@@ -52,7 +52,7 @@
     fsEl.style.transform = `translate3d(${dx}px, ${dy}px, 0) scale(${scale})`;
 
     // Fine animazione
-    const total = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 950;
+    const total = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1850;
     await new Promise((r) => setTimeout(r, total));
 
     splash.classList.add("is-done");
