@@ -27,11 +27,10 @@
     // Rettangoli attuali
     const from = fsEl.getBoundingClientRect();
     const to = target.getBoundingClientRect();
-
-    // Vogliamo finire "in corrispondenza" del logo: usa l'angolo sinistro del testo logo.
-    // Aggiusta il padding per farlo sembrare attaccato al logo:
-    const padX = 0;   // puoi mettere 2-6 se vuoi micro-offset
-    const padY = 0;
+    
+    // Spingi più vicino all'angolo (valori negativi = più su/sinistra)
+    const padX = -12;  // prova -8 / -12 / -16
+    const padY = -10;  // prova -6 / -10 / -14
 
     const dx = (to.left + padX) - from.left;
     const dy = (to.top + padY) - from.top;
