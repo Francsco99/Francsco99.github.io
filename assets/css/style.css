@@ -59,7 +59,9 @@
 
 html,
 body {
+  width: 100%;
   height: 100%;
+  overflow-x: hidden;
   margin: 0;
   scroll-behavior: smooth;
   background-color: var(--bg-color);
